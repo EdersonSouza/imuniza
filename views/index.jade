@@ -1,24 +1,68 @@
 extends layout
 
 block content
-	h1 Imuniza
-	ul#tabs-swipe-demo.tabs
-		li.tab.col.s3
-			a(href="#test-swipe-1") Teste 1
-		li.tab.col.s3
-			a(href="#test-swipe-2") Teste 2
-		li.tab.col.s3
-			a(href="#test-swipe-3") Teste 3
-	.tabs-content
-		.col.s12.blue#test-swipe-1 Test 1
-			h2 Teste 1 Titulo
-			p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia culpa facilis, eum molestiae soluta nam doloribus asperiores perferendis, voluptatem, deserunt itaque? Provident quibusdam eum ipsum deserunt adipisci vero porro distinctio.
-		.col.s12.red#test-swipe-2 Test 2
-			h2 Teste 2 Título
-			p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia culpa facilis, eum molestiae soluta nam doloribus asperiores perferendis, voluptatem, deserunt itaque? Provident quibusdam eum ipsum deserunt adipisci vero porro distinctio.
-		.col.s12.green#test-swipe-3 Test 3
-			h2 Teste 3 Título
-			p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia culpa facilis, eum molestiae soluta nam doloribus asperiores perferendis, voluptatem, deserunt itaque? Provident quibusdam eum ipsum deserunt adipisci vero porro distinctio.
+
+	//- Navbar
+	nav
+		.nav-wrapper.teal.lighten-3.z-depth-3
+			a(href="#").brand-logo
+				img.logo(src="/images/ze_gotinha.png", alt="")
+			a(href="#", data-activates="mobile-demo").button-collapse
+				i.material-icons menu
+			ul#nav-mobile.right.hide-on-med-and-down
+				li
+					a(href="") Paciente
+				li
+					a(href="") Agentes de Saúde
+				li
+					a(href="") Sobre o Sistema
+			.section.scrollspy
+				ul.side-nav#mobile-demo.background.brown.lighten-3
+					li
+						.user-view
+							.background.yellow.darken-4.valign-wrapper
+								//- img aqui
+								h5 Cartão de Vacina Online
+					li
+						.collapsible-header.waves-effect.black-text Paciente
+					li
+						.collapsible-header.waves-effect.black-text Agentes de Saúde
+					li
+						.collapsible-header.waves-effect.black-text Sobre o Sistema
+					.nav-content
+		//- Layout
+	.row.container
+		.corpo
+			ul.tabs.label-menu.right-align
+				li.tab.col.s6
+					a(href="#test-swipe-1").brown-text.darken-4	Agente de Saúde
+				li.tab.col.s6
+					a(href="#test-swipe-2").brown-text.darken-4	Paciente
+			.tabs-content
+				.col.s12#test-swipe-1
+					.container
+						.row
+							form.col.s12
+								.row
+									.input-field
+										input(type="text").validate#nome
+										label(for="nome") Usuário
+									.input-field.col-s6
+										input(type="password").validate#senha
+										label(for="senha") Senha
+									button(type="submit").btn.waves-effect.waves-light Enviar
+										i.material-icons.left done
+				.col.s12#test-swipe-2
+					.container
+						.row
+							form.col.s12
+								.row
+									.input-field
+										input(type="text").validate#cpf
+										label(for="cpf") CPF
+									button(type="submit").btn.waves-effect.waves-light Enviar
+										i.material-icons.left done
+			
 
 
 //-   

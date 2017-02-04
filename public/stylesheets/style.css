@@ -1,8 +1,32 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 0px;
+  /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
+  background:  left no-repeat fixed url(../images/ze_gotinha_opaco.png);
 }
 
 a {
   color: #00B7FF;
+}
+
+.nav-wrapper{
+	padding: 2px;
+}
+@media only screen and (min-width: 995px){
+	.corpo{
+		padding-top: 50px;
+		margin-left: 200px;
+	}
+} 
+.corpo{
+	/**/
+	padding-top: 50px;
+}
+
+.logo{
+	margin-left: 20px;
+	max-width: 64px;
+	max-height: 64px;
+}
+.label-menu{
+	background: transparent !important;
 }

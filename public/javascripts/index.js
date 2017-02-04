@@ -1,8 +1,13 @@
 $(document).ready(function(){
 	 $('.carousel').carousel();
-	 $('ul.tabs').tabs({
-	 },'select_tab', 'tab_id');
+	 $('.collapsible').collapsible();
+	 $('ul.tabs').tabs();
 
+	 $(".button-collapse").sideNav();
+	 $(".collapsible").collapsible();
+
+
+	 $('#cpf').mask('000.000.000-00');
 	 
   });
 
