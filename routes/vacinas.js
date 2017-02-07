@@ -1,14 +1,9 @@
-var express = require('express');
-var router = express.Router();
+module.exports = function(app){
+	var usuarios = app.controllers.usuarios;
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.render('index', {title: 'Express'});
-});
-router.get('/vacinas',function(req,res){
-	res.render('vacinas.create');
-});
-
-module.exports = router;
+	
+	app.get('/Vacinas', vacinas.create);
+	
+}
 
 
