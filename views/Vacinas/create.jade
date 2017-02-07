@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+    h1 Cadastro de vacinas
+    hr
+    br
+    form(method="POST", action="/usuarios", role="form")
+      div(class="form-group")
+        label Nome:
+        input(type="text", name="nome", class="form-control")
