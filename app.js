@@ -35,6 +35,7 @@ app.use(cookieParser());
 app.use(session({secret :'sua-chave-secreta'}));
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 //app.use('/', index);
 //app.use('/users', users);
 
@@ -45,6 +46,12 @@ app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
+});
+app.use(function(req, res, next){
+  res.locals.session = req.session.usuario;
+  res.local.isLogged = req.session.usuario ? true : false;
+  next();
+
 });
 
 // error handler

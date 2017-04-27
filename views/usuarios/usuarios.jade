@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+    h1 Cadastro de usuarios
+    hr
+    br
+    form(method="POST", action="/cadastrar", role="form")
+      div(class="form-group")
+        label Nome:
+        input(type="text", name="nome", class="form-control" , required)
+        label registro:
+        input(type="text", name="registro", class="form-control", required)
+        label Senha:
+        input(type="password", name="senha", class="form-control", required)
+        input(type="submit",name="cadastrar", class="form-control" )

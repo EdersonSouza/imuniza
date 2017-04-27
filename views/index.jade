@@ -42,13 +42,13 @@ block content
 				.col.s12#test-swipe-1
 					.container
 						.row
-							form.col.s12
+							form.col.s12(method="post", action="/acessar")
 								.row
 									.input-field
-										input(type="text").validate#nome
-										label(for="nome") Usuário
+										input(type="text", name="registro").validate#nome
+										label(for="nome") Registro
 									.input-field.col-s6
-										input(type="password").validate#senha
+										input(type="password" name="senha").validate#senha
 										label(for="senha") Senha
 									button(type="submit").btn.waves-effect.waves-light Enviar
 										i.material-icons.left done
