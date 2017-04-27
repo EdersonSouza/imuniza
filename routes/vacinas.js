@@ -1,9 +1,12 @@
-/*module.exports = function(app){
-	var usuarios = app.controllers.usuarios;
+module.exports = function(app){
+	var vacinasController = app.controllers.vacinas;
 
 	
-	app.get('/Vacinas', vacinas.create);
+	app.route('/vacinas')
+   		.get(vacinasController.create);
+   	app.route("/create")
+   		.post(vacinasController.insert);
 	
 }
-*/
+
 

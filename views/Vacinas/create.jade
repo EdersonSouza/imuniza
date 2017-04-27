@@ -4,7 +4,8 @@ block content
     h1 Cadastro de vacinas
     hr
     br
-    form(method="POST", action="/usuarios", role="form")
+    form(method="POST", action="/create", role="form")
       div(class="form-group")
         label Nome:
         input(type="text", name="nome", class="form-control")
+        input(type="submit",name="cadastrar", class="form-control" )

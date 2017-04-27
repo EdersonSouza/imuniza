@@ -6,7 +6,7 @@ module.exports = function(app){
 		
 
 		create: function(req,res){
-			res.render("vacinas/create");
+			res.render("Vacinas/create");
 		},
 
 		insert: function(req,res){
@@ -15,7 +15,7 @@ module.exports = function(app){
 				if(err){
 					console.log(err);
 				}
-				req.flash('info','vacinas cadastrado com sucesso!');
+				//req.flash('info','vacinas cadastrado com sucesso!');
 				res.redirect('/vacinas');
 			});
 		}
