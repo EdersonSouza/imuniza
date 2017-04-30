@@ -2,35 +2,6 @@ extends layout
 
 block content
 
-	//- Navbar
-	nav
-		.nav-wrapper.teal.lighten-3.z-depth-3
-			a(href="#").brand-logo
-				img.logo(src="/images/ze_gotinha.png", alt="")
-			a(href="#", data-activates="mobile-demo").button-collapse
-				i.material-icons menu
-			ul#nav-mobile.right.hide-on-med-and-down
-				li
-					a(href="") Paciente
-				li
-					a(href="") Agentes de Saúde
-				li
-					a(href="") Sobre o Sistema
-			.section.scrollspy
-				ul.side-nav#mobile-demo.background.brown.lighten-3
-					li
-						.user-view
-							.background.yellow.darken-4.valign-wrapper
-								//- img aqui
-								h5 Cartão de Vacina Online
-					li
-						.collapsible-header.waves-effect.black-text Paciente
-					li
-						.collapsible-header.waves-effect.black-text Agentes de Saúde
-					li
-						.collapsible-header.waves-effect.black-text Sobre o Sistema
-					.nav-content
-		//- Layout
 	.row.container
 		.corpo
 			ul.tabs.label-menu.right-align
