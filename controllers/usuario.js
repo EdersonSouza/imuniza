@@ -6,9 +6,11 @@ module.exports = function(app){
 			var senha = req.body.senha;
 			userModel.findOne({registro : req.body.registro}, function(err, user){
 				if (err){
-					res.send("falha na autenticação")
+					req.flash("erro", "erro de autenticação ");
+					res.redirect('/');
 				}else if(!user){
-					res.send("usuario não cadastrado")
+					req.flash("erro", "usuario não cadastrado ");
+					res.redirect('/');
 
 				}else if(user.validPassword(senha, user.senha)){
 					req.session.usuario = user;

@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var mongoose = require('mongoose');
 var load     = require('express-load');
+var flash = require('express-flash');
 
 mongoose.connect('mongodb://localhost/imuniza',function(err){
 	if(err){
@@ -34,6 +35,7 @@ app.use(bodyParser.urlencoded({ etended: false }));
 app.use(cookieParser());
 app.use(session({secret :'sua-chave-secreta'}));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(flash());
 
 
 //app.use('/', index);

@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+	h1 Vacinas
+	if lista.length > 0
+		table(class="bordered")
+			thead
+				tr 
+					th Nome:
+			tbody
+				each valor in lista
+					tr
+						td #{valor.nome}
+
+	else 
+		p nenhum registro encontrado

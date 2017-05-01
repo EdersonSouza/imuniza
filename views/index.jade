@@ -2,6 +2,10 @@ extends layout
 
 block content
 
+	if messages.erro
+		div(class="alert-danger")
+			p= messages.erro
+		br
 	.row.container
 		.corpo
 			ul.tabs.label-menu.right-align
