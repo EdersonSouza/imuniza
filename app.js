@@ -8,6 +8,7 @@ var session = require('express-session');
 var mongoose = require('mongoose');
 var load     = require('express-load');
 var flash = require('express-flash');
+var expressValidator = require('express-validator');
 
 mongoose.connect('mongodb://localhost/imuniza',function(err){
 	if(err){
@@ -31,6 +32,7 @@ app.set('view engine', 'jade');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
+app.use(expressValidator());
 app.use(bodyParser.urlencoded({ etended: false }));
 app.use(cookieParser());
 app.use(session({secret :'sua-chave-secreta'}));

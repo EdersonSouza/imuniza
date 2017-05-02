@@ -1,0 +1,8 @@
+extends ../layout
+block content
+	h1 #{dados.nome}
+	br
+	h1 #{dados._id}
+	br
+	form(method="POST", action="/vacina/delete/#{dados._id}", role="form")
+		button(type="submit", class="waves-effect waves-light btn") Excluir
