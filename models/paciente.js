@@ -21,11 +21,7 @@ module.exports = function(){
 			cidade: {type: String,trim:true},
 			uf: 	{type: String,trim:true},
 		},
-		telefones:{
-			res: {type: String,trim:true},
-			cel: {type: String,trim:true},
-			opc: {type: String,trim:true}
-		}
+		telefone:{type: String,trim:true}
 
 	});
 
