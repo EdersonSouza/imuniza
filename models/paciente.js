@@ -7,7 +7,6 @@ module.exports = function(){
 		nasc:   {type: Date},
 		rg: 	{type: String,trim:true},
 		cpf: 	{type: String,trim:true, unique: true},
-		renach: {type: String,trim:true},
 		email: 	{type: String,trim: true},
 		sexo: 	{type: String},
 		pais: 	{
