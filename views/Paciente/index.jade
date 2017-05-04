@@ -14,16 +14,19 @@ block content
                         input.validate(type="email" name="email")
                         label(for="email") Email
                     .input-field.col.s3
+                        input(type="text" name="sus")
+                        label(for="fone") registro sus
+                .row
+                    .input-field.col.s3
                         input(type="text" name="fone")
                         label(for="fone") Fone (Opcional)
-                .row
-                    .input-field.col.s4
+                    .input-field.col.s3
                         input.validate(type="text" name="rg")
                         label(for="rg") RG
-                    .input-field.col.s4
+                    .input-field.col.s3
                         input.validate(type="text", name="cpf")
                         label(for="cpf") CPF
-                    .input-field.col.s4
+                    .input-field.col.s3
                         input.datepicker(type="date" name="nasc")
                         label(for="nasc") Data de Nascimento
                 .row
