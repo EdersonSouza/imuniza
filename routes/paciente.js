@@ -6,6 +6,10 @@ module.exports = function(app){
 		.get(autenticar, controller.index);
 
 	app.route("/cadastro/paciente")
+		.get(autenticar, controller.create)
    		.post(autenticar, controller.cadastro);
+
+   	app.route("/buscar")
+   		.post(autenticar, controller.buscar);
 
 }

@@ -2,12 +2,23 @@ module.exports = function(app){
 	var paciente = app.models.paciente;
 	var vacina = app.models.vacinas;
 	var vacinas;
+	vacina.find(function(err,dados){
+				if(err){
+					//
+				}else{
+					vacinas=dados;
+				}
+
+			});
 	
 	var pacienteController = {
 		
 		index:function(req, res){
 			res.render('Paciente/index');
 
+		},
+		create:function(req,res){
+			res.render('Paciente/create');
 		},
 		cadastro:function(req,res){
 			var model = new paciente();
@@ -27,14 +38,7 @@ module.exports = function(app){
 			model.endereco.uf = req.body.uf;
 			model.telefone = req.body.telefone;
 
-			vacina.find(function(err,dados){
-				if(err){
-					//
-				}else{
-					vacinas=dados;
-				}
-
-			});
+			
 
 			paciente.findOne({'cpf' : model.cpf}, function(err, data){
 					if(data){
@@ -54,7 +58,14 @@ module.exports = function(app){
 					}
 				});
 		},
-		cartao:function(req,res){
+		buscar:function(req,res){
+			paciente.findOne({cpf: req.body.cpf}, function(err, data){
+				if(err){
+					res.send('paciente não encontrado');
+				}else{
+					res.render('Paciente/cartao', {vacinas:vacinas,paciente:data});
+				}
+			});
 
 		}
 	}

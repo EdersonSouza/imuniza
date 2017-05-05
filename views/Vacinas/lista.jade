@@ -3,20 +3,22 @@ extends ../layout
 block content
 	h1 Vacinas
 	if lista.length > 0
-		table(class="bordered")
-			thead
-				tr 
-					th Nome:
-					th Ações:
-			tbody
-				each valor in lista
-					tr
-						td #{valor.nome}
-						td
-							a(href="/show/#{valor._id}", class="btn-floating btn-large blue")
-								i(class="large material-icons") visibility
-							a(href="/vacina/edit/#{valor._id}", class="btn-floating btn-large red")
-								i(class="large material-icons") mode_edit
+		.responsive-table
+			table(class="striped")
+				thead
+					tr 
+						th Nome:
+						th Ações:
+				tbody
+					each valor in lista
+						tr
+							td #{valor.nome}
+							td
+								a(href="/show/#{valor._id}", class="btn-large")
+									i(class="large material-icons") visibility
+
+								a(href="/vacina/edit/#{valor._id}", class="btn-floating btn-large red")
+									i(class="large material-icons") mode_edit
 
 								
 

@@ -1,64 +1,17 @@
 extends ../layout
-
 block content
-    .container
-        .row
-            .valign-wrapper
-                h5 Cadastro de Pacientes
-            form(action="/cadastro/paciente" method="POST").col.s12
-                .row
-                    .input-field.col.s6
-                        input.validate(type="text" name="nome" required )
-                        label(for="nome") Nome
-                    .input-field.col.s3
-                        input.validate(type="email" name="email")
-                        label(for="email") Email
-                    .input-field.col.s3
-                        input(type="text" name="sus")
-                        label(for="fone") registro sus
-                .row
-                    .input-field.col.s3
-                        input(type="text" name="fone")
-                        label(for="fone") Fone (Opcional)
-                    .input-field.col.s3
-                        input.validate(type="text" name="rg")
-                        label(for="rg") RG
-                    .input-field.col.s3
-                        input.validate(type="text", name="cpf")
-                        label(for="cpf") CPF
-                    .input-field.col.s3
-                        input.datepicker(type="date" name="nasc")
-                        label(for="nasc") Data de Nascimento
-                .row
-                    .input-field.col.s6
-                        input.validate(type="text", name="pai")
-                        label(for="pai") Nome do Pai
-                    .input-field.col.s6
-                        input.validate(type="text" name="mae")
-                        label(for="mae") Nome da Mãe
-                .row
-                    .input-field.col.s4
-                        input.validate(type="text" name="rua")
-                        label(for="rua") Rua
-                    .input-field.col.s1
-                        input.validate(type="text" name="numero")
-                        label(for="numero") Número
-                    .input-field.col.s3
-                        input.validate(type="text" name="bairro")
-                        label(for="bairro") Bairro
-                    .input-field.col.s4
-                        input.validate(type="text" name="cep")
-                        label(for="cep") CEP
-                .row
-                    .input-field.col.s8
-                        input.validate(type="text" name="cidade")
-                        label(for="cidade") Cidade
-                    .input-field.col.s4
-                        input.validate(type="text" name="uf")
-                        label(for="uf") UF
-                .row
-                    button.btn.waves-effect.waves-light(type="submit" name="action") Cadastrar
-                        i.material-icons.right send
+	.container
+		br
+		.row
+			form(method="post" action="/buscar").col.s12
+				.row
+					.input-field.col.s4
+						input.validate(type="text" name="cpf" required)
+						label(for="cpf") Buscar Paciente
+					.row
+						.input-fild.col.s5
+							button(class="btn-floating btn-large blue")
+								i(class="material-icons") search
 
 
-    
+			a(href="/cadastro/paciente", class='waves-effect waves-light btn') Cadastrar
