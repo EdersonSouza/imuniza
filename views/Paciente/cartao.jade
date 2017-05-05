@@ -1,14 +1,17 @@
 extends ../layout
 block content
 	h1 Pacientes
-	if paciente.length > 0
+		p #{paciente.nome}
+		br 
+		p #{paciente._id}
+	if vacinas.length > 0
 		table(class="bordered")
 			thead
 				tr 
 					th Nome:
 					th Ações:
 			tbody
-				each valor in paciente
+				each valor in vacinas
 					tr
 						td #{valor.nome}
 						td

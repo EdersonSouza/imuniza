@@ -48,7 +48,7 @@ module.exports = function(app){
 							}else{
 								req.flash('info', 'Paciente cadastrado com sucesso!');
 
-								res.render('Paciente/cartao', {vacinas:vacinas,paciente:req.body});
+								res.render('Paciente/cartao', {vacinas:vacinas,paciente:model});
 							}
 						});
 					}
