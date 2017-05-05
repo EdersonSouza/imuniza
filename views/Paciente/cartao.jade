@@ -1,0 +1,14 @@
+extends ../layout
+block content
+	h1 Pacientes
+	if paciente.length > 0
+		table(class="bordered")
+			thead
+				tr 
+					th Nome:
+					th Ações:
+			tbody
+				each valor in paciente
+					tr
+						td #{valor.nome}
+						td

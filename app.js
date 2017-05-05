@@ -28,6 +28,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -53,8 +54,9 @@ app.use(function(req, res, next) {
 });
 app.use(function(req, res, next){
   res.locals.session = req.session.usuario;
-  res.local.isLogged = req.session.usuario ? true : false;
-  next();
+  res.locals.isLogged = req.session.usuario ? true : false;
+    res.locals.moment   = moment;
+    next();
 
 });
 

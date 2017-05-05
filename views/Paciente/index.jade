@@ -5,10 +5,10 @@ block content
         .row
             .valign-wrapper
                 h5 Cadastro de Pacientes
-            form(action="#" method="POST").col.s12
+            form(action="/cadastro/paciente" method="POST").col.s12
                 .row
                     .input-field.col.s6
-                        input.validate(type="text" name="nome" )
+                        input.validate(type="text" name="nome" required )
                         label(for="nome") Nome
                     .input-field.col.s3
                         input.validate(type="email" name="email")
@@ -61,72 +61,4 @@ block content
                         i.material-icons.right send
 
 
-    //-section.container.nav-top
-        //- .panel.panel-default
-        //-     .panel-heading.text-center
-        //-         h3
-        //-             span.fa.fa-user-plus  Cadastro de Pacientes 
-        //-     .panel-body
-        //-         form.col-md-10.col-md-offset-1.col-xs-12.col-xs-offset-0(action="/cadastro/paciente", method="post",role="form")
-        //-             if messages.erro
-        //-                 .alert.alert-danger
-        //-                     each msg in messages.erro
-        //-                         b=msg
-        //-                         br
-        //-                 br
-        //-             .row
-        //-                 .col-xs-12.col-sm-6.col-md-6
-        //-                     .form-group
-        //-                         input.form-control(type="text", name="nome",placeholder="Nome", tabindex="1", required)
-        //-                 .col-xs-12.col-sm-6.col-md-6
-        //-                     .form-group
-        //-                         input.form-control(type="email", name="email",placeholder="Email", tabindex="3",required)
-        //-             .row
-        //-                 .col-xs-12.col-sm-6.col-md-6
-        //-                     .form-group
-        //-                         input.form-control(type="text", name="rg", placeholder="RG", tabindex="4",required)
-        //-                 .col-xs-12.col-sm-6.col-md-6
-        //-                     .form-group
-        //-                         input.form-control.cpf(type="text",name="cpf", placeholder="CPF", tabindex="5",required )
-        //-             .row
-        //-                 .col-xs-12.col-sm-6.col-md-6
-        //-                     .form-group
-        //-                         input.form-control.fone(type="text" name="fone",placeholder="Fone Opcional", tabindex="6")
-        //-             .row
-        //-                 .col-xs-12.col-sm-6.col-md-4
-        //-                     .form-group
-        //-                         input.form-control.calend(type="text", name="nasc", placeholder="Data de Nasc",tabindex="7", required)
-        //-                 .col-xs-12.col-sm-6.col-md-4
-        //-                     .form-group
-        //-                         input.form-control(type="text", name="pai", placeholder="Nome do Pai", tabindex="8", required)
-        //-                 .col-xs-12.col-sm-6.col-md-4
-        //-                     .form-group
-        //-                         input.form-control(type="text", name="mae", placeholder="Nome da Mãe", tabindex="9", required)
-        //-             .row
-        //-                 .col-xs-12.col-sm-6.col-md-9
-        //-                     .form-group
-        //-                         input.form-control(type="text", name="rua", placeholder="Nome da Rua", tabindex="13", required)
-        //-                 .col-xs-12.col-sm-6.col-md-2
-        //-                     .form-group
-        //-                         input.form-control(type="text", name="numero", placeholder="Nº",tabindex="14", required)
-        //-             .row
-        //-                 .col-xs-12.col-sm-6.col-md-3
-        //-                     .form-group
-        //-                         input.form-control(type="text", name="bairro", placeholder="Bairro", tabindex="15", required)
-        //-                 .col-xs-12.col-sm-6.col-md-3
-        //-                     .form-group
-        //-                         input.form-control#cep(type="text", name="cep",  placeholder="CEP", tabindex="16", required)
-        //-                 .col-xs-12.col-sm-6.col-md-3
-        //-                     .form-group
-        //-                         input.form-control#estado(type="text", name="uf", placeholder="UF", tabindex="17", required)
-        //-                 .col-xs-12.col-sm-6.col-md-3
-        //-                     .form-group
-        //-                         input.form-control#cidade(type="text", name="cidade", placeholder="Cidade", tabindex="18", required)
-                    
-                        
-                    
-        //-             button.btn.btn-danger.btn-lg.btn-block(type="submit", tabindex="14") Cadastrar
-        //-             h3
-        //-                 a(href="/").btn-floating.btn-large
-        //-                     i(class="large material-icons") reply
-                                    
+    

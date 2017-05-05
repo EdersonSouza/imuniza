@@ -6,6 +6,5 @@ module.exports = function(app){
    	app.route("/cadastrar")
    		.post(userController.cadastro);
 
-   	app.route("/acessar")
-   		.post(userController.autenticar);
+   	
 }

@@ -1,21 +1,22 @@
 module.exports = function(app){
 	var vacinasController = app.controllers.vacinas;
+   var autenticar = require('../middleware/autenticacao');
 
 	
 	app.route('/vacinas')
-   		.get(vacinasController.create);
+   		.get(autenticar, vacinasController.create);
    app.route("/create")
-   		.post(vacinasController.insert);
+   		.post(autenticar, vacinasController.insert);
    app.route('/lista')
-   		.get(vacinasController.listarVacina);
+   		.get(autenticar, vacinasController.listarVacina);
    app.route('/show/:id')
-   		.get(vacinasController.show);
+   		.get(autenticar, vacinasController.show);
 
    app.route('/vacina/delete/:id')
-   		.post(vacinasController.delete);
+   		.post(autenticar, vacinasController.delete);
    app.route('/vacina/edit/:id')
-         .get(vacinasController.edit)
-         .post(vacinasController.update);
+         .get(autenticar, vacinasController.edit)
+         .post(autenticar, vacinasController.update);
 	
 }
 
