@@ -9,6 +9,7 @@ var mongoose = require('mongoose');
 var load     = require('express-load');
 var flash = require('express-flash');
 var expressValidator = require('express-validator');
+var moment =require('moment')
 
 mongoose.connect('mongodb://localhost/imuniza',function(err){
 	if(err){
@@ -17,6 +18,7 @@ mongoose.connect('mongodb://localhost/imuniza',function(err){
 		console.log("sucesso ao conectar no mongodb");
 	}
 });
+var porta   = 3000;
 
 
 //var index = require('./routes/index');
@@ -36,13 +38,27 @@ app.use(bodyParser.json());
 app.use(expressValidator());
 app.use(bodyParser.urlencoded({ etended: false }));
 app.use(cookieParser());
-app.use(session({secret :'sua-chave-secreta'}));
+app.use(session({
+  secret :'sua-chave-secreta',
+  saveUninitialized: true,
+  resave: true
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(flash());
 
 
 //app.use('/', index);
 //app.use('/users', users);
+
+
+
+app.use(function(req, res, next){
+  res.locals.session = req.session.usuario;
+  res.locals.isLogged = req.session.usuario ? true : false;
+    res.locals.moment   = moment;
+    next();
+
+});
 
 load('models').then('controllers').then('routes').into(app);
 
@@ -51,13 +67,6 @@ app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
-});
-app.use(function(req, res, next){
-  res.locals.session = req.session.usuario;
-  res.locals.isLogged = req.session.usuario ? true : false;
-    res.locals.moment   = moment;
-    next();
-
 });
 
 // error handler
@@ -71,4 +80,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+app.listen(porta, function(){
+    console.log('Servidor node js ativo na porta '+ porta);
+  });
+
+//module.exports = app;

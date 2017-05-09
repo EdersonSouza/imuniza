@@ -4,6 +4,9 @@ module.exports = function(app){
 		index: function(req, res){
 			res.render('index');
 		},
+		home: function(req, res){
+			res.render('usuarios/admin');
+		},
 		autenticar:function(req,res){
 			var usuario = new userModel();
 			var senha = req.body.senha;
@@ -17,7 +20,8 @@ module.exports = function(app){
 
 				}else if(user.validPassword(senha, user.senha)){
 					req.session.usuario = user;
-					res.render('usuarios/admin');
+					console.log(req.session.usuario);
+					res.redirect('/logado');
 				}else {
 					res.send('registro ou senha invalido');
 				}

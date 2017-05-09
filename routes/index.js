@@ -11,4 +11,7 @@ module.exports = function(app){
    	app.route('/sair')
    		.get(controller.logout)
 
+   	app.route('/logado')
+   		.get(controller.home)
+
 }
