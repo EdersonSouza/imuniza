@@ -23,8 +23,8 @@ module.exports = function(){
 		},
 		telefone:{type: String,trim:true},
 		vacinas :{
-			data : {type: Date},
-			vacina: {type: Schema.ObjectId, ref: 'Vacina', required: true}
+			data : [{type: Date}],
+			vacina: [{type: Schema.ObjectId, ref: 'Vacina', required: true}]
 		}
 
 	});
