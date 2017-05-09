@@ -16,6 +16,10 @@ block content
 					tr
 						td #{valor.nome}
 						td
-							input(class="with-gap" name="status" type="checkbox" class="test5")
-							label(for="test5")
+							if isLogged
+								input(class="with-gap" name="status" type="checkbox" id="id"+[valor])
+								label(for="id"+[valor])
+							else
+								input(class="with-gap" name="status" type="checkbox" id="ch")
+								label(for="ch")
 						td

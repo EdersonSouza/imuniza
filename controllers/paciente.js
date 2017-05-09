@@ -59,6 +59,7 @@ module.exports = function(app){
 				});
 		},
 		buscar:function(req,res){
+			console.log('entrou aqui');
 			var vacinas;
 			vacina.find(function(err,dados){
 				if(err){

@@ -3,13 +3,13 @@ module.exports = function(app){
 	var autenticar = require('../middleware/autenticacao');
 
 	app.route('/paciente')
-		.get(autenticar, controller.index);
+		.get(controller.index);
 
 	app.route("/cadastro/paciente")
 		.get(autenticar, controller.create)
    		.post(autenticar, controller.cadastro);
 
    	app.route("/buscar")
-   		.post(autenticar, controller.buscar);
+   		.post(controller.buscar);
 
 }
