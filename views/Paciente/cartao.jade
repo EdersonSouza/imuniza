@@ -1,9 +1,9 @@
 extends ../layout
 block content
 	h1 Pacientes
-		p #{paciente.nome}
-		br 
-		p #{paciente._id}
+	p #{paciente.nome}
+	br 
+	p #{paciente._id}
 	if vacinas.length > 0
 		table(class="bordered")
 			thead
@@ -16,6 +16,6 @@ block content
 					tr
 						td #{valor.nome}
 						td
-							input(class="with-gap" name="group3" type="checkbox" class="test5")
+							input(class="with-gap" name="status" type="checkbox" class="test5")
 							label(for="test5")
 						td

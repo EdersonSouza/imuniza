@@ -1,15 +1,6 @@
 module.exports = function(app){
 	var paciente = app.models.paciente;
 	var vacina = app.models.vacinas;
-	var vacinas;
-	vacina.find(function(err,dados){
-				if(err){
-					//
-				}else{
-					vacinas=dados;
-				}
-
-			});
 	
 	var pacienteController = {
 		
@@ -21,6 +12,15 @@ module.exports = function(app){
 			res.render('Paciente/create');
 		},
 		cadastro:function(req,res){
+			var vacinas;
+			vacina.find(function(err,dados){
+				if(err){
+					//
+				}else{
+					vacinas=dados;
+				}
+
+			});
 			var model = new paciente();
 			model.nome = req.body.nome;
 			model.nasc = req.body.nasc;
@@ -59,6 +59,15 @@ module.exports = function(app){
 				});
 		},
 		buscar:function(req,res){
+			var vacinas;
+			vacina.find(function(err,dados){
+				if(err){
+					//
+				}else{
+					vacinas=dados;
+				}
+
+			});
 			paciente.findOne({cpf: req.body.cpf}, function(err, data){
 				if(err){
 					res.send('paciente não encontrado');
