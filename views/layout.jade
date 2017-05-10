@@ -1,5 +1,6 @@
 doctype html
 nav
+    if isLogged
         .nav-wrapper.teal.lighten-3.z-depth-3
             a(href="#").brand-logo
                 img.logo(src="/images/vacina.jpg", alt="")
@@ -30,6 +31,30 @@ nav
                         .collapsible-header.waves-effect.black-text Sobre o Sistema
                     li
                         .collapsible-header.waves-effect.black-text Sair
+                    .nav-content
+
+    else
+        .nav-wrapper.teal.lighten-3.z-depth-3
+            a(href="#").brand-logo
+                img.logo(src="/images/vacina.jpg", alt="")
+            a(href="#", data-activates="mobile-demo").button-collapse
+                i.material-icons menu
+            ul#nav-mobile.right.hide-on-med-and-down
+               
+                li
+                    a(href="") Sobre o Sistema
+               
+            .section.scrollspy
+                ul.side-nav#mobile-demo.background.brown.lighten-3
+                    li
+                        .user-view
+                            .background.yellow.darken-4.valign-wrapper
+                                //- img aqui
+                                h5 Cartão de Vacina Online
+                
+                    li
+                        .collapsible-header.waves-effect.black-text Sobre o Sistema
+                    
                     .nav-content
 html
   head
