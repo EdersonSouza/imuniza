@@ -11,7 +11,8 @@ $(document).ready(function(){
 	 $(".button-collapse").sideNav();
 	 $(".collapsible").collapsible();
 
-
+	 $(".dropdown-button").dropdown();
+	 $('select').material_select();
 	 $('#cpf').mask('000.000.000-00');
 	 
   });

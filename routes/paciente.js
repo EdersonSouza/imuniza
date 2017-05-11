@@ -12,4 +12,8 @@ module.exports = function(app){
    	app.route("/buscar")
    		.post(controller.buscar);
 
+   	app.route('/aplicarVacina')
+   		.get(controller.aplicarView)
+   		.post(controller.aplicar)
+
 }

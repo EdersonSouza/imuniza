@@ -77,6 +77,20 @@ module.exports = function(app){
 				}
 			});
 
+		},
+		aplicarView: function(req, res){
+			vacina.find()
+				.exec(function(err, dados){
+					if(!dados){
+						res.render('Paciente/aplicarVacina', {vacina: ''});
+					}else if(dados){
+						res.render('Paciente/aplicarVacina', {vacinas: dados});
+					}
+				});
+			
+		},
+		aplicar: function(req, res){
+			
 		}
 	}
 	return pacienteController;
