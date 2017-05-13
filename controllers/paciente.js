@@ -78,6 +78,36 @@ module.exports = function(app){
 			});
 
 		},
+		update: function(req, res){
+			vacina.findOne({nome: req.body.nome}, function(err, data){
+				if(err){
+					res.send('vacina não encontrada');
+					console.log("entrou aqui");
+				}else{
+					paciente.findById(req.params.id, function(err, dados){
+					console.log('ID: '+ req.params.id);
+					var modelo		 = dados;
+					modelo.vacinas.vacina.push(data._id);
+					
+
+					modelo.save(function(err){
+						if(err){
+							req.flash('erro', 'Erro ao atualizar os dados: ' + err);
+							res.render('Paciente/cartao', {paciente:data});
+						}
+						else{
+								console.log("entrou aqui");
+								req.flash('info', 'Registro atualizado com sucesso!');
+								res.render("usuarios/admin");
+							}
+						
+					});
+				});
+					
+				}
+			});
+			
+		},
 		aplicarView: function(req, res){
 			vacina.find()
 				.exec(function(err, dados){
