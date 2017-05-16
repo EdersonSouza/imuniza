@@ -9,7 +9,7 @@ module.exports = function(){
     nome: String 
   });
 
-  return mongoose.model('vacinas', vacina);
+  return mongoose.model('Vacinas', vacina);
 
 
 

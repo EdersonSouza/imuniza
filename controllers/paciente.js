@@ -70,7 +70,7 @@ module.exports = function(app){
 		},
 		imprimiCartao:function(req,res){
 			paciente.findOne({cpf:req.body.cpf})
-				.populate({path:'vacinas', model: 'vacinas'})
+				.populate('vacinas.vacina')
 				.exec(function(err, dados){
 					if(err){
 						res.send('erro ao popular paciente');

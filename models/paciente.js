@@ -25,7 +25,7 @@ module.exports = function(){
 		vacinas :[
 			{
 				data : {type: Date},
-				vacina: {type: Schema.ObjectId, ref: 'vacinas', required: true}
+				vacina: {type: Schema.ObjectId, ref: 'Vacinas', required: true}
 			}
 		]
 
