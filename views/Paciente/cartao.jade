@@ -7,12 +7,13 @@ block content
 		p #{paciente._id}
 		.container
 			.row
-				form.col.s12(method="POST", action="/paciente/edit/#{paciente._id}")
-					.row
-						.input-field.col.s6
-							select#selectVacina(name="nome")
-								option(value="", disabled, selected) Vacinas
-								each vacina in vacinas
-									option(value="#{vacina.nome}") #{vacina.nome}
-					.row
-						button(type="submit", class="waves-effect waves-light btn") Atualizar
+				table
+					thead
+						th Vacina
+						th Data Tomada
+						tr
+					tbody
+						for val in paciente.vacinas
+							tr
+								td #{val.vacina}
+								td #{val.data}

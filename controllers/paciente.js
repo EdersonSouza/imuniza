@@ -68,6 +68,17 @@ module.exports = function(app){
 			});
 
 		},
+		imprimiCartao:function(req,res){
+			paciente.findOne({cpf:req.body.cpf})
+				.populate({path:'vacinas', model: 'vacinas'})
+				.exec(function(err, dados){
+					if(err){
+						res.send('erro ao popular paciente');
+					}else if(dados){
+						res.render('Paciente/cartao', {paciente:dados});
+					}
+				});
+		},
 		update: function(req, res){
 			
 		},

@@ -35,3 +35,11 @@ a {
 	display: none;
 	
 }
+label#nome{
+	color:black;
+	font-weight: bold;
+	display:block;
+	width: 150px;
+	float: left;
+	font-size: 25 ;
+}

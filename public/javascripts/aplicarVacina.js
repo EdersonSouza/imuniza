@@ -19,6 +19,7 @@ $(document).ready(function(){
 	        },
 	        success: function(paciente){
 	        	$('#idPaciente').val(paciente._id);
+	        	$('label#nome').append(paciente.nome ); 
 	        	$('#selectVacina').show();
 
 	        }
