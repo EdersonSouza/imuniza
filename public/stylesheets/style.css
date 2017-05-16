@@ -30,3 +30,8 @@ a {
 .label-menu{
 	background: transparent !important;
 }
+
+#selectVacina{
+	display: none;
+	
+}

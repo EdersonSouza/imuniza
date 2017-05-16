@@ -59,46 +59,50 @@ module.exports = function(app){
 				});
 		},
 		buscar:function(req,res){
-			console.log('entrou aqui');
-			var vacinas;
-			vacina.find(function(err,dados){
-				if(err){
-					//
-				}else{
-					vacinas=dados;
-				}
-
-			});
 			paciente.findOne({cpf: req.body.cpf}, function(err, data){
 				if(err){
 					res.send('paciente não encontrado');
 				}else{
-					res.render('Paciente/cartao', {vacinas:vacinas,paciente:data});
+					res.send(data);
 				}
 			});
 
 		},
 		update: function(req, res){
-			vacina.findOne({nome: req.body.nome}, function(err, data){
+			
+		},
+		aplicarView: function(req, res){
+			vacina.find()
+				.exec(function(err, dados){
+					if(!dados){
+						res.render('Paciente/aplicarVacina', {vacina: '', paciente: ' '});
+					}else if(dados){
+						res.render('Paciente/aplicarVacina', {vacinas: dados, paciente: ' '});
+					}
+				});
+			
+		},
+		aplicar: function(req, res){
+			vacina.findOne({_id: req.body.vacinas}, function(err, data){
 				if(err){
 					res.send('vacina não encontrada');
 					console.log("entrou aqui");
 				}else{
-					paciente.findById(req.params.id, function(err, dados){
-					console.log('ID: '+ req.params.id);
-					var modelo		 = dados;
-					modelo.vacinas.vacina.push(data._id);
-					
+					paciente.findById({_id: req.body.id}, function(err, paciente){
+					console.log('ID: '+ paciente.nome);
 
-					modelo.save(function(err){
+
+					paciente.vacinas.push({data: req.body.date, vacina: data._id});
+
+					paciente.save(function(err){
 						if(err){
 							req.flash('erro', 'Erro ao atualizar os dados: ' + err);
-							res.render('Paciente/cartao', {paciente:data});
+							res.render('Paciente/cartao', {paciente: paciente});
 						}
 						else{
 								console.log("entrou aqui");
 								req.flash('info', 'Registro atualizado com sucesso!');
-								res.render("usuarios/admin");
+								res.redirect('/aplicarVacina');
 							}
 						
 					});
@@ -106,20 +110,6 @@ module.exports = function(app){
 					
 				}
 			});
-			
-		},
-		aplicarView: function(req, res){
-			vacina.find()
-				.exec(function(err, dados){
-					if(!dados){
-						res.render('Paciente/aplicarVacina', {vacina: ''});
-					}else if(dados){
-						res.render('Paciente/aplicarVacina', {vacinas: dados});
-					}
-				});
-			
-		},
-		aplicar: function(req, res){
 			
 		}
 	}

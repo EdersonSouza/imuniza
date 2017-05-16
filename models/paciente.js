@@ -22,10 +22,12 @@ module.exports = function(){
 			uf: 	{type: String,trim:true},
 		},
 		telefone:{type: String,trim:true},
-		vacinas :{
-			data : [{type: Date}],
-			vacina: [{type: Schema.ObjectId, ref: 'Vacina', required: true}]
-		}
+		vacinas :[
+			{
+				data : {type: Date},
+				vacina: {type: Schema.ObjectId, ref: 'Vacina', required: true}
+			}
+		]
 
 	});
 
