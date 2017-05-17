@@ -9,6 +9,7 @@ module.exports = function(){
 		cpf: 	{type: String,trim:true, unique: true},
 		email: 	{type: String,trim: true},
 		sexo: 	{type: String},
+		sus:    {type: String},
 		pais: 	{
 			pai: {type: String,trim:true},
 			mae: {type: String,trim:true}

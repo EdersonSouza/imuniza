@@ -1,19 +1,22 @@
 extends ../layout
 block content
-	.container
-		h1 Pacientes
-		p #{paciente.nome}
-		br 
-		p #{paciente._id}
 		.container
+			h1 Cartão Paciente
 			.row
-				table
-					thead
-						th Vacina
-						th Data Tomada
-						tr
-					tbody
-						for val in paciente.vacinas
+				table.responsive-table
+						thead
+							th Nome: #{'' || paciente.nome}
+							th CPF: #{'' || paciente.cpf}
+							th E-Mail: #{'' || paciente.email}
+
+				.row
+					table.bordered.striped.responsive-table
+						thead
+							th Vacina
+							th Data Tomada
 							tr
-								td #{val.vacina.nome}
-								td #{val.data}
+						tbody
+							for val in paciente.vacinas
+								tr
+									td #{val.vacina.nome}
+									td #{moment(val.data).format('DD/MM/YYYY')}

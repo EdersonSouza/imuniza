@@ -2,8 +2,8 @@ extends ../layout
 
 block content
 	.container
-		h5 Aplicar Vacina
-			.row
+			div(id="cva").row
+				h5 Aplicar Vacina
 				.input-field.col.s6
 					input.validate(type="text" name="cpf" required id="cpfPaciente")
 					label(for="cpf") CPF do Paciente
@@ -14,8 +14,7 @@ block content
 				.row
 					input(type="hidden" name="id" id="idPaciente" value="#{paciente._id || ''}")
 					.row
-						.input-fild.col.s6
-							label(id="nome")
+							h3(id="nome")
 					.row
 						.input-field.col.s6
 							select(name="vacinas")

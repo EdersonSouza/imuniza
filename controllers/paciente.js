@@ -12,20 +12,13 @@ module.exports = function(app){
 			res.render('Paciente/create');
 		},
 		cadastro:function(req,res){
-			var vacinas;
-			vacina.find(function(err,dados){
-				if(err){
-					//
-				}else{
-					vacinas=dados;
-				}
-
-			});
+			
 			var model = new paciente();
 			model.nome = req.body.nome;
 			model.nasc = req.body.nasc;
 			model.rg  = req.body.rg;
 			model.cpf = req.body.cpf;
+			model.sus = req.body.sus;
 			model.email = req.body.email;
 			model.sexo = req.body.sexo;
 			model.pais.pai = req.body.pai;
@@ -52,7 +45,7 @@ module.exports = function(app){
 							}else{
 								req.flash('info', 'Paciente cadastrado com sucesso!');
 
-								res.render('Paciente/cartao', {vacinas:vacinas,paciente:model});
+								res.render('Paciente/cartao', {paciente:model});
 							}
 						});
 					}
