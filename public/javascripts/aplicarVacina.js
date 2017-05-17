@@ -13,7 +13,7 @@ $(document).ready(function(){
 			url: '/buscar',
 	        type: 'post',
 	        dataType: 'json',
-	        data: {cpf: $('#cpfPaciente').val()},
+	        data: {sus: $('#susPaciente').val()},
 	        error: function(){
 	        	res.send('Não foi possível buscar o paciente.');
 	        },

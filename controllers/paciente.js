@@ -53,7 +53,7 @@ module.exports = function(app){
 				});
 		},
 		buscar:function(req,res){
-			paciente.findOne({cpf: req.body.cpf}, function(err, data){
+			paciente.findOne({sus: req.body.sus}, function(err, data){
 				if(err){
 					res.send('paciente não encontrado');
 				}else{
@@ -63,7 +63,7 @@ module.exports = function(app){
 
 		},
 		imprimiCartao:function(req,res){
-			paciente.findOne({cpf:req.body.cpf})
+			paciente.findOne({sus:req.body.sus})
 				.populate('vacinas.vacina')
 				.populate('vacinas.aplicador')
 				.exec(function(err, dados){
