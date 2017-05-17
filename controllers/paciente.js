@@ -1,6 +1,7 @@
 module.exports = function(app){
 	var paciente = app.models.paciente;
 	var vacina = app.models.vacinas;
+	var aplicador=app.models.aplicadorVacina;
 	
 	var pacienteController = {
 		
@@ -64,6 +65,7 @@ module.exports = function(app){
 		imprimiCartao:function(req,res){
 			paciente.findOne({cpf:req.body.cpf})
 				.populate('vacinas.vacina')
+				.populate('vacinas.aplicador')
 				.exec(function(err, dados){
 					if(err){
 						res.send('erro ao popular paciente');
@@ -92,25 +94,39 @@ module.exports = function(app){
 					res.send('vacina não encontrada');
 					console.log("entrou aqui");
 				}else{
-					paciente.findById({_id: req.body.id}, function(err, paciente){
-					console.log('ID: '+ paciente.nome);
-
-
-					paciente.vacinas.push({data: req.body.date, vacina: data._id});
-
-					paciente.save(function(err){
+					aplicador.findOne({coren: req.body.coren}, function(err, dados){
 						if(err){
-							req.flash('erro', 'Erro ao atualizar os dados: ' + err);
-							res.render('Paciente/cartao', {paciente: paciente});
+							res.send('Agente de saúde não encontrado');
+							console.log('entrou aqui');
+
+						}else{
+
+							console.log(dados.nome)
+
+							paciente.findById({_id: req.body.id}, function(err, paciente){
+
+
+							paciente.vacinas.push({data: req.body.date, vacina: data._id, aplicador: dados._id});
+
+							paciente.save(function(err){
+								if(err){
+									req.flash('erro', 'Erro ao atualizar os dados: ' + err);
+									res.render('Paciente/cartao', {paciente: paciente});
+								}
+								else{
+										console.log("entrou aqui");
+										req.flash('info', 'Registro atualizado com sucesso!');
+										res.redirect('/aplicarVacina');
+									}
+								
+								});
+							});
+
 						}
-						else{
-								console.log("entrou aqui");
-								req.flash('info', 'Registro atualizado com sucesso!');
-								res.redirect('/aplicarVacina');
-							}
 						
 					});
-				});
+
+					
 					
 				}
 			});

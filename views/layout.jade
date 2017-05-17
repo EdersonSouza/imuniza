@@ -15,6 +15,13 @@ html
             li.divider
             li
                 a(href="/cadastro/paciente") Cadastrar Paciente
+
+        ul.dropdown-content#dropdownAgenteSaude
+            li 
+                a(href="/agente") Consultar 
+            li.divider
+            li
+                a(href="/cadastro/aplicador") Cadastrar 
         nav
             .nav-wrapper.teal.lighten-3.z-depth-3
                 if isLogged
@@ -28,6 +35,9 @@ html
                                     i.material-icons.right
                             li
                                 a(href="/lista") Vacina
+                            li
+                                a.dropdown-button(data-activates="dropdownAgenteSaude") Agente de Saúde
+                                    i.material-icons.right
                             li
                                 a(href="") Sobre o Sistema
                             li

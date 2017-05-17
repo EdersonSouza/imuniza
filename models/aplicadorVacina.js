@@ -2,14 +2,14 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 module.exports = function(){
-	var paciente = mongoose.Schema({
+	var aplicadorVacina = mongoose.Schema({
 		nome: 	{type: String,trim:true},
 		nasc:   {type: Date},
 		rg: 	{type: String,trim:true},
 		cpf: 	{type: String,trim:true, unique: true},
 		email: 	{type: String,trim: true},
 		sexo: 	{type: String},
-		sus:    {type: String},
+		coren:    {type: String},
 		pais: 	{
 			pai: {type: String,trim:true},
 			mae: {type: String,trim:true}
@@ -23,15 +23,8 @@ module.exports = function(){
 			uf: 	{type: String,trim:true},
 		},
 		telefone:{type: String,trim:true},
-		vacinas :[
-			{
-				data : {type: Date},
-				vacina: {type: Schema.ObjectId, ref: 'Vacinas', required: true},
-				aplicador: {type:Schema.ObjectId, ref: 'Aplicador', required: true}
-			}
-		]
 
 	});
 
-	return mongoose.model('Paciente', paciente);
+	return mongoose.model('Aplicador', aplicadorVacina);
 }

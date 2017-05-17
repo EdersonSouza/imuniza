@@ -1,0 +1,64 @@
+extends ../layout
+
+block content
+    .container
+        .row
+            .valign-wrapper
+                h5 Cadastro de Pacientes
+            form(action="/cadastro/aplicador" method="POST").col.s12
+                .row
+                    .input-field.col.s6
+                        input.validate(type="text" name="nome" required )
+                        label(for="nome") Nome
+                    .input-field.col.s3
+                        input.validate(type="email" name="email" required)
+                        label(for="email") Email
+                    .input-field.col.s3
+                        input(type="text" name="coren" required)
+                        label(for="fone") Numero Coren
+                .row
+                    .input-field.col.s3
+                        input.validate(type="text" name="fone" required)
+                        label(for="fone") Fone
+                    .input-field.col.s3
+                        input.validate(type="text" name="rg" required)
+                        label(for="rg") RG
+                    .input-field.col.s3
+                        input.validate(type="text", name="cpf" required)
+                        label(for="cpf") CPF
+                    .input-field.col.s3
+                        input.datepicker(type="date" name="nasc" required)
+                        label(for="nasc") Data de Nascimento
+                .row
+                    .input-field.col.s6
+                        input.validate(type="text", name="pai" required)
+                        label(for="pai") Nome do Pai
+                    .input-field.col.s6
+                        input.validate(type="text" name="mae" required)
+                        label(for="mae") Nome da Mãe
+                .row
+                    .input-field.col.s4
+                        input.validate(type="text" name="rua" required)
+                        label(for="rua") Rua
+                    .input-field.col.s1
+                        input.validate(type="text" name="numero" required)
+                        label(for="numero") Número
+                    .input-field.col.s3
+                        input.validate(type="text" name="bairro" required)
+                        label(for="bairro") Bairro
+                    .input-field.col.s4
+                        input.validate(type="text" name="cep" required)
+                        label(for="cep") CEP
+                .row
+                    .input-field.col.s8
+                        input.validate(type="text" name="cidade" required)
+                        label(for="cidade") Cidade
+                    .input-field.col.s4
+                        input.validate(type="text" name="uf" required)
+                        label(for="uf") UF
+                .row
+                    button.btn.waves-effect.waves-light(type="submit" name="action") Cadastrar
+                        i.material-icons.right send
+
+
+    

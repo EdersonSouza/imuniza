@@ -1,22 +1,26 @@
 extends ../layout
 block content
 		.container
-			h1 Cartão Paciente
 			.row
-				table.responsive-table
-						thead
-							th Nome: #{'' || paciente.nome}
-							th CPF: #{'' || paciente.cpf}
-							th E-Mail: #{'' || paciente.email}
+				.row
+					h3(id="pac").col.s5 Cartão Paciente
+				div(id="pac").row
+					h6.col.s4 NOME: #{'' || paciente.nome}
+					h6.col.s3 CPF: #{'' || paciente.cpf}
+					h6.col.s5 E-Mail: #{'' || paciente.email}
 
 				.row
-					table.bordered.striped.responsive-table
+					table(id="tabela").bordered.striped.responsive-table.cols12
 						thead
 							th Vacina
-							th Data Tomada
+							th Data de Aplicação
+							th Aplicador
+							th Coren Aplicador
 							tr
 						tbody
 							for val in paciente.vacinas
 								tr
 									td #{val.vacina.nome}
 									td #{moment(val.data).format('DD/MM/YYYY')}
+									td #{val.aplicador.nome}
+									td #{val.aplicador.coren}
