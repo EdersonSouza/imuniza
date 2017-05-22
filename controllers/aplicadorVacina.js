@@ -25,6 +25,8 @@ module.exports = function(app){
 			model.endereco.cidade = req.body.cidade;
 			model.endereco.uf = req.body.uf;
 			model.telefone = req.body.telefone;
+			model.tipo = req.body.optradio;
+			model.senha = model.generateHash(req.body.senha);
 
 			
 

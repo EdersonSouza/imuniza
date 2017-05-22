@@ -4,29 +4,36 @@ block content
     .container
         .row
             .valign-wrapper
-                h5 Cadastro de Pacientes
+                h5 Cadastro de Usuário
             form(action="/cadastro/aplicador" method="POST").col.s12
+
                 .row
-                    .input-field.col.s6
+                    .input-field.col.s5
                         input.validate(type="text" name="nome" required )
                         label(for="nome") Nome
                     .input-field.col.s3
                         input.validate(type="email" name="email" required)
                         label(for="email") Email
-                    .input-field.col.s3
-                        input(type="text" name="coren" required)
-                        label(for="fone") Numero Coren
+                    .input-field.col.s2
+                        input(type="text" name="senha" required)
+                        label(for="senha") Senha
+                    .input-field.col.s2
+                        input(type="text" name="tipo" required)
+                        label(for="tipo") Tipo
                 .row
                     .input-field.col.s3
                         input.validate(type="text" name="fone" required)
                         label(for="fone") Fone
-                    .input-field.col.s3
+                    .input-field.col.s2
                         input.validate(type="text" name="rg" required)
                         label(for="rg") RG
                     .input-field.col.s3
                         input.validate(type="text", name="cpf" required)
                         label(for="cpf") CPF
-                    .input-field.col.s3
+                    .input-field.col.s2
+                        input(type="text" name="coren" required)
+                        label(for="fone") Numero Coren
+                    .input-field.col.s2
                         input.datepicker(type="date" name="nasc" required)
                         label(for="nasc") Data de Nascimento
                 .row

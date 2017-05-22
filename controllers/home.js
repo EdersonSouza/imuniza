@@ -1,5 +1,5 @@
 module.exports = function(app){
-	var userModel = app.models.usuario;
+	var userModel = app.models.aplicadorVacina;
 	var homeController = {
 		index: function(req, res){
 			res.render('index');
@@ -10,7 +10,7 @@ module.exports = function(app){
 		autenticar:function(req,res){
 			var usuario = new userModel();
 			var senha = req.body.senha;
-			userModel.findOne({registro : req.body.registro}, function(err, user){
+			userModel.findOne({email : req.body.email}, function(err, user){
 				if (err){
 					req.flash("erro", "erro de autenticação ");
 					res.redirect('/');

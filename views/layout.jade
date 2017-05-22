@@ -35,9 +35,10 @@ html
                                     i.material-icons.right
                             li
                                 a(href="/lista") Vacina
-                            li
-                                a.dropdown-button(data-activates="dropdownAgenteSaude") Agente de Saúde
-                                    i.material-icons.right
+                            if  (session.tipo==="administrador")
+                                li
+                                    a.dropdown-button(data-activates="dropdownAgenteSaude") Agente de Saúde
+                                        i.material-icons.right
                             li
                                 a(href="") Sobre o Sistema
                             li
