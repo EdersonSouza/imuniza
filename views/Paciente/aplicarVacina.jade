@@ -16,14 +16,16 @@ block content
 					.row
 							h5(id="nome")
 					.row
-						.input-field.col.s4
+						.input-field.col.s6
 							select(name="vacinas")
 								option(value="", disabled, selected) Vacinas
 								each vacina in vacinas
 									option(value="#{vacina._id}") #{vacina.nome}
-						.input-field.col.s4
+						.input-field.col.s6
 							input(type="DATE" name="date")
-						 	label(for="coren") Coren do Vacinador
+						//- .input-field.col.s4
+						//- 	input(type="text" name="coren")
+						//- 	label(for="coren") Coren do Aplicador
 				.row
 					.input-field.col.s6
 						button.btn.waves-effect.waves-light(type="submit" name="action") Aplicar
