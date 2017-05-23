@@ -22,6 +22,13 @@ html
             li.divider
             li
                 a(href="/cadastro/aplicador") Cadastrar 
+
+        ul.dropdown-content#dropdownVacinas
+            li 
+                a(href="/lista") Listar
+            li.divider
+            li
+                a(href="/gerar_relatorio") Gerar Relatorio 
         nav
             .nav-wrapper.teal.lighten-3.z-depth-3
                 if isLogged
@@ -34,7 +41,8 @@ html
                                 a.dropdown-button(data-activates="dropdownPaciente") Paciente
                                     i.material-icons.right
                             li
-                                a(href="/lista") Vacina
+                                a.dropdown-button(data-activates="dropdownVacinas") Vacina
+                                    i.material-icons.right
                             if  (session.tipo==="administrador")
                                 li
                                     a.dropdown-button(data-activates="dropdownAgenteSaude") Agente de Saúde

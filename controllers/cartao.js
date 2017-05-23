@@ -2,8 +2,36 @@ module.exports = function(app){
 	var paciente = app.models.paciente;
 	var vacina = app.models.vacinas;
 	var aplicador=app.models.aplicadorVacina;
+	var moment = require('moment');
 	
 	var cartaoController = {
+
+		getRelatorio: function(req, res){
+			res.render("Vacinas/relatorio");
+
+		},
+
+		gerarRelatorio: function(req,res){
+
+			var ini = req.body.din;
+			var fimStr = req.body.dfim;
+
+			console.log(ini);
+
+			paciente.find({"vacinas":[{"data":{$gte:ini}}]})
+				.populate('vacinas.vacina')
+				.populate('vacinas.aplicador')
+				.exec(function(err,dados){
+					if(!dados){
+						res.send('erro ao popular paciente');
+					}else if(dados){
+						console.log(dados.length);
+						res.render("Vacinas/listRelatorio", {paciente:dados});
+					}
+
+				});
+
+		},
 		
 		
 		imprimiCartao:function(req,res){
@@ -11,8 +39,8 @@ module.exports = function(app){
 				.populate('vacinas.vacina')
 				.populate('vacinas.aplicador')
 				.exec(function(err, dados){
-					if(err){
-						res.send('erro ao popular paciente');
+					if(!dados){
+						res.send('paciente não encontrado');
 					}else if(dados){
 						res.render('Paciente/cartao', {paciente:dados});
 					}
