@@ -29,6 +29,13 @@ html
             li.divider
             li
                 a(href="/gerar_relatorio") Gerar Relatorio 
+
+        ul.dropdown-content#dropdownusuario
+            li 
+                a(href="/sair") Sair
+            li.divider
+            li
+                a(href="/perfil") Perfil
         nav
             .nav-wrapper.teal.lighten-3.z-depth-3
                 if isLogged
@@ -49,8 +56,10 @@ html
                                         i.material-icons.right
                             li
                                 a(href="") Sobre o Sistema
+                            
                             li
-                                a(href="/sair")  Sair
+                                a.dropdown-button(data-activates="dropdownusuario") #{session.nome}
+                                    i.material-icons.right
 
                 else
                     a(href="#").brand-logo

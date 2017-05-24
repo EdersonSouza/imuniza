@@ -1,6 +1,11 @@
 module.exports = function(app){
 	var userModel = app.models.aplicadorVacina;
 	var homeController = {
+
+		perfil: function(req,res){
+			res.render('usuarios/perfil');
+
+		},
 		index: function(req, res){
 			res.render('index');
 		},

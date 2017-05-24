@@ -1,0 +1,66 @@
+extends ../layout
+
+block content
+    .container
+        .row.col.s12
+            .row.col.s6
+                section.container
+                    h6 Dados Pessoais
+                    hr
+                    p
+                        span
+                            b  Nome: #{session.nome}
+                    p
+                        span
+                            b  RG: #{session.rg}
+                    p
+                    p
+                        span
+                            b  CPF: #{session.cpf}
+                    p
+                    p
+                        span.fa.fa-envelope
+                            b  Email: #{session.email}
+                    p
+                        span
+                            b  Fone:  #{session.fone}
+            .row.col.s6
+                section.container
+                    h6 Filiação
+                    hr
+                    p
+                        span
+                            b  Mãe: #{session.pais.mae}
+                    p
+                        span
+                            b  Pai: #{session.pais.pai}
+    
+
+        .row.col.s12
+            section.container
+                h6 Endereço
+                hr
+                p
+                    span
+                        b  Rua: #{session.endereco.rua}
+                p
+                    span
+                         b  Numero: #{session.endereco.numero}
+                p
+                    span
+                        b  Bairro: #{session.endereco.bairro}
+                p
+                    span
+                        b  Cidade: #{session.endereco.cidade}
+                p
+                   span
+                        b  CEP: #{session.endereco.cep}
+                p
+                    span
+                           b  UF: #{session.endereco.uf}
+                    
+
+
+
+                   
+    

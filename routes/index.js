@@ -1,5 +1,4 @@
 
-
 module.exports = function(app){
 	var controller = app.controllers.home;
 	var autenticar = require('../middleware/autenticacao');
@@ -13,5 +12,7 @@ module.exports = function(app){
 
    	app.route('/logado')
    		.get(controller.home)
+   	app.route('/perfil')
+   		.get(controller.perfil)
 
 }

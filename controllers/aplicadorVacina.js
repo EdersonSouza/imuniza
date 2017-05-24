@@ -24,7 +24,7 @@ module.exports = function(app){
 			model.endereco.cep = req.body.cep;
 			model.endereco.cidade = req.body.cidade;
 			model.endereco.uf = req.body.uf;
-			model.telefone = req.body.telefone;
+			model.telefone = req.body.fone;
 			model.tipo = req.body.optradio;
 			model.senha = model.generateHash(req.body.senha);
 
@@ -42,7 +42,7 @@ module.exports = function(app){
 							}else{
 								req.flash('info', 'Agente de saúde cadastrado com sucesso!');
 
-								res.render('/usuarios/admin');
+								res.render('usuarios/admin');
 							}
 						});
 					}

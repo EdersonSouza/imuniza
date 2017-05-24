@@ -30,7 +30,7 @@ module.exports = function(app){
 			model.endereco.cep = req.body.cep;
 			model.endereco.cidade = req.body.cidade;
 			model.endereco.uf = req.body.uf;
-			model.telefone = req.body.telefone;
+			model.telefone = req.body.fone;
 
 			
 
