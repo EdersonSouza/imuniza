@@ -42,7 +42,7 @@ module.exports = function(app){
 							}else{
 								req.flash('info', 'Agente de saúde cadastrado com sucesso!');
 
-								res.render('usuarios/admin');
+								res.render('/usuarios/admin');
 							}
 						});
 					}

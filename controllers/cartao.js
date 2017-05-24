@@ -15,18 +15,19 @@ module.exports = function(app){
 
 			var ini = req.body.din;
 			var fim = req.body.dfim;
+			var vac={};
 
 	
 
-			paciente.find({"vacinas":{"data":{'$gte':ini , '$lte':fim}}})
-				.populate('vacinas.vacina')
-				.populate('vacinas.aplicador')
-				.exec(function(err,dados){
-					if(!dados){
+			vacina.find({"dados.data":{'$gte':ini , '$lte':fim}})
+				.populate('dados.paciente')
+				.populate('dados.aplicador')
+				.exec(function(err,vacinas){
+					if(!vacinas){
 						res.send('erro ao popular paciente');
-					}else if(dados){
-						console.log(dados.length);
-						res.render("Vacinas/listRelatorio", {paciente:dados});
+					}else if(vacinas){
+						
+						res.render("Vacinas/listRelatorio", {vacinas:vacinas});
 					}
 
 				});
@@ -80,6 +81,7 @@ module.exports = function(app){
 
 							paciente.vacinas.push({data: req.body.date, vacina: data._id, aplicador: dados._id});
 							dados.vacinas.push({data: req.body.date, vacina: data._id, paciente: paciente._id})
+							data.dados.push({data:req.body.date, paciente:paciente._id, aplicador: dados._id})
 
 							paciente.save(function(err){
 								if(err){
@@ -94,9 +96,21 @@ module.exports = function(app){
 												
 											}
 											else{
-												console.log("entrou aqui");
-												req.flash('info', 'Registro atualizado com sucesso!');
-												res.redirect('/aplicarVacina');
+
+												data.save(function(err){
+													if(err){
+														req.flash('erro', 'Erro ao atualizar os dados: ' + err);
+														}
+														else{
+
+															console.log("entrou aqui");
+															req.flash('info', 'Registro atualizado com sucesso!');
+															res.redirect('/aplicarVacina');
+
+														}
+
+												});
+												
 											}
 
 										});
