@@ -14,11 +14,11 @@ module.exports = function(app){
 		gerarRelatorio: function(req,res){
 
 			var ini = req.body.din;
-			var fimStr = req.body.dfim;
+			var fim = req.body.dfim;
 
-			console.log(ini);
+	
 
-			paciente.find({"vacinas":[{"data":{$gte:ini}}]})
+			paciente.find({"vacinas":{"data":{'$gte':ini , '$lte':fim}}})
 				.populate('vacinas.vacina')
 				.populate('vacinas.aplicador')
 				.exec(function(err,dados){
