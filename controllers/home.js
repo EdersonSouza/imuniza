@@ -3,7 +3,15 @@ module.exports = function(app){
 	var homeController = {
 
 		perfil: function(req,res){
-			res.render('usuarios/perfil');
+			userModel.findById(req.params.id, function(err,dados){
+				if(err){
+					req.flash('erro', "erro ao buscar usuario");
+					res.render('usuarios/admin');
+				}else{
+					res.render('usuarios/perfil', {usuario:dados});
+				}
+
+			});
 
 		},
 		index: function(req, res){

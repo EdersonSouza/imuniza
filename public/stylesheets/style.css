@@ -43,6 +43,9 @@ label#nome{
 	float: left;
 	font-size: 25 ;
 }
+.atualizar{
+	display: none;
+}
 
 div#pac{
 	background-color: #E6E6E6;

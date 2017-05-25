@@ -8,64 +8,100 @@ block content
             form(action="/cadastro/aplicador" method="POST").col.s12
 
                 .row
-                    .input-field.col.s5
-                        input.validate(type="text" name="nome" required )
-                        label(for="nome") Nome
-                    .input-field.col.s3
-                        input.validate(type="email" name="email" required)
-                        label(for="email") Email
-                    .input-field.col.s2
-                        input(type="text" name="senha" required)
-                        label(for="senha") Senha
-                    .input-field.col.s2
-                        input(type="text" name="tipo" required)
-                        label(for="tipo") Tipo
+                    .col.s12.m6.l4
+                        .input-field
+                            input.validate(type="text" name="nome" value="#{aplicador.nome || ''}" required )
+                            label(for="nome") Nome
+                    .col.s12.m6.l2
+                        .input-field
+                            input.calend(type="text" name="nasc"  value="#{aplicador.nsc || ''}" required)
+                            label(for="nasc") Data de Nascimento
+                    .col.s12.m6.l3
+                        .input-field
+                            input.validate(type="text" name="rg"  value="#{aplicador.rg || ''}" required)
+                            label(for="rg") RG
+                    .col.s12.m6.l3
+                        .input-field
+                            input.validate.cpf(type="text", name="cpf"  value="#{aplicador.cpf || ''}" required)
+                            label(for="cpf") CPF
                 .row
-                    .input-field.col.s3
-                        input.validate(type="text" name="fone" required)
-                        label(for="fone") Fone
-                    .input-field.col.s2
-                        input.validate(type="text" name="rg" required)
-                        label(for="rg") RG
-                    .input-field.col.s3
-                        input.validate(type="text", name="cpf" required)
-                        label(for="cpf") CPF
-                    .input-field.col.s2
-                        input(type="text" name="coren" required)
-                        label(for="fone") Numero Coren
-                    .input-field.col.s2
-                        input.datepicker(type="date" name="nasc" required)
-                        label(for="nasc") Data de Nascimento
+                    .col.s12.m6.l6
+                        .input-field
+                            input.validate(type="text", name="pai"  value="#{aplicador.pais.pai || ''}"  required)
+                            label(for="pai") Nome do Pai
+                    .col.s12.m6.l6
+                        .input-field
+                            input.validate(type="text" name="mae"  value="#{aplicador.pais.mae || ''}"  required)
+                            label(for="mae") Nome da Mãe
                 .row
-                    .input-field.col.s6
-                        input.validate(type="text", name="pai" required)
-                        label(for="pai") Nome do Pai
-                    .input-field.col.s6
-                        input.validate(type="text" name="mae" required)
-                        label(for="mae") Nome da Mãe
+                    .col.s12.m6.l4
+                        .input-field
+                            input.validate(type="text" name="fone"  value="#{aplicador.telefone || ''}"  required)
+                            label(for="fone") Fone
+                    
+                    .col.s12.m6.l4
+                        .input-field
+                            input(type="text" name="coren"  value="#{aplicador.coren || ''}"  required)
+                            label(for="coren") Numero Coren
+                     .col.s12.m6.l4
+                        .input-field
+                            select(name="tipo" required)
+                                    option(value="", disabled, selected) Tipo
+                                        option(value="administrador") Administrador
+                                        option(value="vacinador") Vacinador
                 .row
-                    .input-field.col.s4
-                        input.validate(type="text" name="rua" required)
-                        label(for="rua") Rua
-                    .input-field.col.s1
-                        input.validate(type="text" name="numero" required)
-                        label(for="numero") Número
-                    .input-field.col.s3
-                        input.validate(type="text" name="bairro" required)
-                        label(for="bairro") Bairro
-                    .input-field.col.s4
-                        input.validate(type="text" name="cep" required)
-                        label(for="cep") CEP
+                    .col.s12.m6.l6
+                        .input-field
+                            input.validate(type="email" name="email"  value="#{aplicador.email || ''}" required)
+                            label(for="email") Email
+                    .col.s12.m6.l3
+                        .input-field
+                            input(type="password" name="senha"  required)
+                            label(for="senha") Senha
+                    .col.s12.m6.l3
+                        .input-field
+                            input(type="password" name="repetirsenha" required)
+                            label(for="senha") Digite a Senha novamente
+                
                 .row
-                    .input-field.col.s8
-                        input.validate(type="text" name="cidade" required)
-                        label(for="cidade") Cidade
-                    .input-field.col.s4
-                        input.validate(type="text" name="uf" required)
-                        label(for="uf") UF
+                    .col.s12.m6.l4
+                        .input-field
+                            input.validate(type="text" name="rua"  value="#{aplicador.endereco.rua || ''}" required)
+                            label(for="rua") Rua
+                    .col.s12.m6.l2
+                        .input-field
+                            input.validate(type="text" name="numero"  value="#{aplicador.endereco.numero || ''}" required)
+                            label(for="numero") Número
+                    .col.s12.m6.l4
+                        .input-field
+                            input.validate(type="text" name="bairro"  value="#{aplicador.endereco.bairro || ''}" required)
+                            label(for="bairro") Bairro
+                    .col.s12.m6.l2
+                        .input-field
+                            input.validate(type="text" name="cep"  value="#{aplicador.endereco.cep || ''}" required)
+                            label(for="cep") CEP
+                .row
+
+                    .col.s12.m6.l8
+                        .input-field
+                            input.validate(type="text" name="cidade"  value="#{aplicador.endereco.cidade || ''}" required)
+                            label(for="cidade") Cidade
+                    .col.s12.m6.l4
+                        .input-field
+                            input.validate(type="text" name="uf" value ="#{aplicador.endereco.uf || ''}" required)
+                            label(for="uf") UF
+                if messages.erro
+                    .row
+                        .col.s12.m6.l6
+                            each msg in messages.erro
+                                    b=msg
+                                    br
                 .row
                     button.btn.waves-effect.waves-light(type="submit" name="action") Cadastrar
                         i.material-icons.right send
+
+                
+                        
 
 
     

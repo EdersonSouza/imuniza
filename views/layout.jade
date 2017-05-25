@@ -34,8 +34,10 @@ html
             li 
                 a(href="/sair") Sair
             li.divider
+        if isLogged
             li
-                a(href="/perfil") Perfil
+                a(href="/perfil/#{session._id}") Perfil
+        else
         nav
             .nav-wrapper.teal.lighten-3.z-depth-3
                 if isLogged

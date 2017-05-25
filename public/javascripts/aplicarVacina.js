@@ -27,4 +27,28 @@ $(document).ready(function(){
 		});
 	});
 
+	$('.editar').click(function(){
+	    $('input, select').removeAttr('disabled');
+	    $('#atualizar').show();
+	    $('.editar').hide();
+	   
+  });
+
+ $('.calend').pickadate({
+    // Day states
+    day: 'picker__day',
+    disabled: 'picker__day--disabled',
+    selected: 'picker__day--selected',
+    highlighted: 'picker__day--highlighted',
+    now: 'picker__day--today',
+    infocus: 'picker__day--infocus',
+    outfocus: 'picker__day--outfocus',
+    selectYears: 200,
+    selectMonths: true,
+
+    // The picker footer
+    footer: 'picker__footer',
+});
+
+
 });

@@ -13,7 +13,7 @@ $(document).ready(function(){
 
 	 $(".dropdown-button").dropdown();
 	 $('select').material_select();
-	 $('#cpf').mask('000.000.000-00');
+	 $('.cpf').mask('000.000.000-00');
 
 	  $('.dropdown-button').dropdown({
       inDuration: 300,

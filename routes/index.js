@@ -12,7 +12,7 @@ module.exports = function(app){
 
    	app.route('/logado')
    		.get(controller.home)
-   	app.route('/perfil')
+   	app.route('/perfil/:id')
    		.get(controller.perfil)
 
 }
