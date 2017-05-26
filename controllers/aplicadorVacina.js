@@ -1,7 +1,14 @@
 module.exports = function(app){
 	var aplicador = app.models.aplicadorVacina;
+	var moment = require('moment');
 
 	var aplicadorController={
+
+
+		buscar:function(req,res){
+			res.render('AplicadorVacina/editar', {usuario:new aplicador});
+
+		},
 
 		create:function(req,res){
 			res.render('AplicadorVacina/cadastrar', {aplicador: new aplicador()});
@@ -60,11 +67,32 @@ module.exports = function(app){
 		},
 
 
+		edit:function(req,res){
+			aplicador.findOne({coren: req.body.coren}, function(err,data){
+				if(err){
+					req.flash('erro', 'Agente de saúde não encontrado');
+
+					console.log('erro');
+
+				}
+				else{
+					req.flash('info','Agente de saúde encontrado');
+
+					console.log(data.nasc);
+					
+					res.render('AplicadorVacina/atualizar',{usuario:data});
+					
+				}
+
+			});
+		},
+
+
 		atualizar:function(req,res){
 			aplicador.findById(req.params.id, function(err,dados){
 				var model = dados;
 				model.nome = req.body.nome;
-				model.nasc = req.body.nasc;
+				model.nasc = moment(req.body.nasc, 'DD-MM-YYYY');
 				model.rg  = req.body.rg;
 				model.cpf = req.body.cpf;
 				model.coren = req.body.coren;
@@ -85,7 +113,7 @@ module.exports = function(app){
 
 					if(err){
 						req.flash('erro', 'Erro ao  atualizar dados: ' + err);
-						res.render('AplicadorVacina/perfil', {aplicador: dados});
+						res.render('AplicadorVacina/perfil', {usuario: dados});
 					}else{
 						req.flash('info', 'dados atualizado!');
 

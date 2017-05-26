@@ -1,0 +1,15 @@
+extends ../layout
+block content
+	.container
+		div(id="cop").row
+			form.col.s12(action="/consultar/aplicador" method="POST")
+
+				h5 Buscar Agente de Saude
+				.input-field.col.s6
+					input.validate(type="text" name="coren" required id="cor")
+					label(for="coren") Numero COREN
+				.input-field.col.s5
+					button(class="btn-floating btn-large blue" id="buscaVacinador")
+						i(class="material-icons") search
+
+	

@@ -14,8 +14,8 @@ $(document).ready(function(){
 	        type: 'post',
 	        dataType: 'json',
 	        data: {sus: $('#susPaciente').val()},
-	        error: function(){
-	        	res.send('Não foi possível buscar o paciente.');
+	        error: function(req){
+	        	req.flash('erro','Não foi possível buscar o paciente.');
 	        },
 	        success: function(paciente){
 	        	$('#idPaciente').val(paciente._id);
@@ -27,9 +27,17 @@ $(document).ready(function(){
 		});
 	});
 
+	/*$('#buscaVacinador').on('click', function(){
+
+		$('.edit').show();
+		$('#cop').hide();
+
+		
+	});*/
+
 	$('.editar').click(function(){
 	    $('input, select').removeAttr('disabled');
-	    $('#atualizar').show();
+	    $('.atualizar').show();
 	    $('.editar').hide();
 	   
   });

@@ -10,23 +10,29 @@ html
         if isLogged
 
             ul.dropdown-content#dropdownPaciente
+
                 li 
-                    a(href="/aplicarVacina") Aplicar Vacinas
+                    a(href="/buscar/paciente") Buscar Paciente
                 li.divider
+                
                 li 
                     a(href="/paciente") Consultar Cartão
                 li.divider
                 li
-                    a(href="/cadastro/paciente") Cadastrar Paciente
+                    a(href="/cadastro/paciente") Cadastrar 
 
             ul.dropdown-content#dropdownAgenteSaude
+                
                 li 
-                    a(href="/agente") Consultar 
+                    a(href="/consultar/aplicador") Consultar 
                 li.divider
                 li
                     a(href="/cadastro/aplicador") Cadastrar 
 
             ul.dropdown-content#dropdownVacinas
+                li 
+                    a(href="/aplicarVacina") Aplicar
+                li.divider
                 li 
                     a(href="/lista") Listar
                 li.divider
@@ -84,6 +90,6 @@ html
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
         script(src="/javascripts/jquery.mask.min.js")
         <script src="/javascripts/index.js"></script>
-        script(src="/javascripts/aplicarVacina.js" type="text/javascript")
+        script(src="/javascripts/script.js" type="text/javascript")
     
 

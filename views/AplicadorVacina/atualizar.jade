@@ -1,0 +1,73 @@
+extends ../layout
+block content
+	section.container
+			form.col.s12(action="/usuarios/editar/#{usuario._id}", method="POST",role="form")
+				.row
+					h5 Dados Pessoais
+					hr
+					.row
+						.col.s12.m6.l5
+							.form-group
+								label Nome
+								input.form-control(type="text", name="nome",placeholder="Nome",value="#{usuario.nome || ''}",  required, disabled)
+						.col.s12.m6.l3
+							.form-group
+								label Nascimento
+								input.form-control(type="text", name="nasc",value="#{moment(usuario.nasc).format('DD/MM/YYYY') || ''}", required, disabled)
+						.col.s12.m6.l4
+							.form-group
+								label Email
+								input.form-control(type="email", name="email",value="#{usuario.email || ''}",placeholder="Email", required, disabled)
+					.row
+						.col.s6.m6.l3
+							.form-group
+								Label RG
+								input.form-control(type="text", name="rg",value="#{usuario.rg || ''}", placeholder="RG",required, disabled)
+						.col.s6.m6.l3
+							.form-group
+								label CPF
+								input.form-control.cpf(type="text",name="cpf",value="#{usuario.cpf || ''}", placeholder="CPF",required, disabled)
+						.col.s6.m6.l3
+							.form-group
+								label Telefone
+								input.form-control.fone(type="text" name="fone",value="#{usuario.telefone || ''}",placeholder="FONE",required, disabled)
+						.col.s6.m6.l3
+							.form-group
+								label COREN
+								input.form-control.fone(type="text" name="coren",value="#{usuario.coren || ''}",placeholder="Numero Coren",required, disabled)
+				.row
+					h5 Endereço
+					hr
+					.row
+						.col.s6.m6.l6
+							.form-group
+								label Cidade
+								input.form-control(type="text", name="cidade",placeholder="CIDADE",value="#{usuario.endereco.cidade || ''}",  required, disabled)
+						.col.s6.m6.l6
+							.form-group
+								label UF
+								input.form-control(type="text", name="uf",value="#{usuario.endereco.uf || ''}",placeholder="Estado", tarequired, disabled)
+					.row
+						.col.s6.m6.l4
+							.form-group
+								Label Rua
+								input.form-control(type="text", name="rua",value="#{usuario.endereco.rua || ''}", placeholder="Rua",required, disabled)
+						.col.s6.m6.l1
+							.form-group
+								label Numero
+								input.form-control(type="text" name="numero",value="#{usuario.endereco.numero || ''}",placeholder="CEP",required, disabled)
+						.col.s6.m6.l4
+							.form-group
+								label Bairro
+								input.form-control(type="text",name="bairro",value="#{usuario.endereco.bairro || ''}", placeholder="Bairro",required, disabled)
+						.col.s6.m6.l3
+							.form-group
+								label CEP
+								input.form-control(type="text" name="cep",value="#{usuario.endereco.cep || ''}",placeholder="CEP",required, disabled)
+					.row.col.s12.l6.m6
+						.col.s12.l3.m6
+							input.btn.btn-warning.btn-lg.btn-block.editar(type="button", value="Editar Perfil")
+							input#atualizar.btn.btn-warning.btn-lg.btn-block.atualizar(type="submit" value="Atualizar")
+					.row.col.s12.m6.l6
+						.col.s6.m6.l4
+							a.btn.btn-warning.btn-lg.btn-block(href="/usuario") Voltar

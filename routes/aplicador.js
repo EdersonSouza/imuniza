@@ -7,5 +7,8 @@ module.exports = function(app){
    		.post(controller.cadastro);
    	app.route("/usuarios/editar/:id")
    		.post(controller.atualizar)
+   	app.route("/consultar/aplicador")
+   		.get(controller.buscar)
+   		.post(controller.edit)
 
 }
