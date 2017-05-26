@@ -15,4 +15,7 @@ module.exports = function(app){
    	app.route('/perfil/:id')
    		.get(controller.perfil)
 
+      app.route('/usuario')
+         .get(controller.home)
+
 }

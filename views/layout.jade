@@ -6,64 +6,69 @@ html
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         link(rel='stylesheet', href='/stylesheets/style.css')
     body
-        ul.dropdown-content#dropdownPaciente
-            li 
-                a(href="/aplicarVacina") Aplicar Vacinas
-            li.divider
-            li 
-                a(href="/paciente") Consultar Cartão
-            li.divider
-            li
-                a(href="/cadastro/paciente") Cadastrar Paciente
 
-        ul.dropdown-content#dropdownAgenteSaude
-            li 
-                a(href="/agente") Consultar 
-            li.divider
-            li
-                a(href="/cadastro/aplicador") Cadastrar 
-
-        ul.dropdown-content#dropdownVacinas
-            li 
-                a(href="/lista") Listar
-            li.divider
-            li
-                a(href="/gerar_relatorio") Gerar Relatorio 
-
-        ul.dropdown-content#dropdownusuario
-            li 
-                a(href="/sair") Sair
-            li.divider
         if isLogged
-            li
-                a(href="/perfil/#{session._id}") Perfil
-        else
-        nav
-            .nav-wrapper.teal.lighten-3.z-depth-3
-                if isLogged
-                        a(href="#").brand-logo
-                            img.logo(src="/images/vacina.jpg", alt="")
-                        a(href="#", data-activates="mobile-demo").button-collapse
-                            i.material-icons menu
-                        ul#nav-mobile.right.hide-on-med-and-down
-                            li
-                                a.dropdown-button(data-activates="dropdownPaciente") Paciente
-                                    i.material-icons.right
-                            li
-                                a.dropdown-button(data-activates="dropdownVacinas") Vacina
-                                    i.material-icons.right
-                            if  (session.tipo==="administrador")
-                                li
-                                    a.dropdown-button(data-activates="dropdownAgenteSaude") Agente de Saúde
-                                        i.material-icons.right
-                            li
-                                a(href="") Sobre o Sistema
-                            
-                            li
-                                a.dropdown-button(data-activates="dropdownusuario") #{session.nome}
-                                    i.material-icons.right
 
-                else
+            ul.dropdown-content#dropdownPaciente
+                li 
+                    a(href="/aplicarVacina") Aplicar Vacinas
+                li.divider
+                li 
+                    a(href="/paciente") Consultar Cartão
+                li.divider
+                li
+                    a(href="/cadastro/paciente") Cadastrar Paciente
+
+            ul.dropdown-content#dropdownAgenteSaude
+                li 
+                    a(href="/agente") Consultar 
+                li.divider
+                li
+                    a(href="/cadastro/aplicador") Cadastrar 
+
+            ul.dropdown-content#dropdownVacinas
+                li 
+                    a(href="/lista") Listar
+                li.divider
+                li
+                    a(href="/gerar_relatorio") Gerar Relatorio 
+
+            ul.dropdown-content#dropdownusuario
+                li 
+                    a(href="/sair") Sair
+                li.divider
+            
+                li
+                    a(href="/perfil/#{session._id}") Perfil
+            
+            nav
+                .nav-wrapper.teal.lighten-3.z-depth-3
+                    
+                            a(href="#").brand-logo
+                                img.logo(src="/images/vacina.jpg", alt="")
+                            a(href="#", data-activates="mobile-demo").button-collapse
+                                i.material-icons menu
+                            ul#nav-mobile.right.hide-on-med-and-down
+                                li
+                                    a.dropdown-button(data-activates="dropdownPaciente") Paciente
+                                        i.material-icons.right
+                                li
+                                    a.dropdown-button(data-activates="dropdownVacinas") Vacina
+                                        i.material-icons.right
+                                if  (session.tipo==="administrador")
+                                    li
+                                        a.dropdown-button(data-activates="dropdownAgenteSaude") Agente de Saúde
+                                            i.material-icons.right
+                                li
+                                    a(href="") Sobre o Sistema
+                                
+                                li
+                                    a.dropdown-button(data-activates="dropdownusuario") #{session.nome}
+                                        i.material-icons.right
+
+        else
+            nav
+                .nav-wrapper.teal.lighten-3.z-depth-3
                     a(href="#").brand-logo
                         img.logo(src="/images/vacina.jpg", alt="")
                     a(href="#", data-activates="mobile-demo").button-collapse
