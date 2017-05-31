@@ -9,7 +9,7 @@ html
 
         if isLogged
 
-            ul.dropdown-content#dropdownPaciente
+            ul.dropdown-content#dropdownPaciente.drop1.teal.lighten-3
 
                 li 
                     a(href="/buscar/paciente") Buscar Paciente
@@ -21,7 +21,7 @@ html
                 li
                     a(href="/cadastro/paciente") Cadastrar 
 
-            ul.dropdown-content#dropdownAgenteSaude
+            ul.dropdown-content#dropdownAgenteSaude.drop1.teal.lighten-3
                 
                 li 
                     a(href="/consultar/aplicador") Consultar 
@@ -29,7 +29,7 @@ html
                 li
                     a(href="/cadastro/aplicador") Cadastrar 
 
-            ul.dropdown-content#dropdownVacinas
+            ul.dropdown-content#dropdownVacinas.drop1.teal.lighten-3
                 li 
                     a(href="/aplicarVacina") Aplicar
                 li.divider
@@ -39,7 +39,44 @@ html
                 li
                     a(href="/gerar_relatorio") Gerar Relatorio 
 
-            ul.dropdown-content#dropdownusuario
+            ul.dropdown-content#dropdownusuario.drop1.teal.lighten-3
+                li 
+                    a(href="/sair") Sair
+                li.divider
+            
+                li
+                    a(href="/perfil/#{session._id}") Perfil
+            ul.dropdown-content#dropdownPaciente1.drop2
+
+                li 
+                    a(href="/buscar/paciente") Buscar Paciente
+                li.divider
+                
+                li 
+                    a(href="/paciente") Consultar Cartão
+                li.divider
+                li
+                    a(href="/cadastro/paciente") Cadastrar 
+
+            ul.dropdown-content#dropdownAgenteSaude1.drop2
+                
+                li 
+                    a(href="/consultar/aplicador") Consultar 
+                li.divider
+                li
+                    a(href="/cadastro/aplicador") Cadastrar 
+
+            ul.dropdown-content#dropdownVacinas1.drop2
+                li 
+                    a(href="/aplicarVacina") Aplicar
+                li.divider
+                li 
+                    a(href="/lista") Listar
+                li.divider
+                li
+                    a(href="/gerar_relatorio") Gerar Relatorio 
+
+            ul.dropdown-content#dropdownusuario1.drop2
                 li 
                     a(href="/sair") Sair
                 li.divider
@@ -71,6 +108,24 @@ html
                                 li
                                     a.dropdown-button(data-activates="dropdownusuario") #{session.nome}
                                         i.material-icons.right
+                            ul#mobile-demo.side-nav
+                                li
+                                    a.dropdown-button(data-activates="dropdownPaciente1") Paciente
+                                        i.material-icons.right
+                                li
+                                    a.dropdown-button(data-activates="dropdownVacinas1") Vacina
+                                        i.material-icons.right
+                                if  (session.tipo==="administrador")
+                                    li
+                                        a.dropdown-button(data-activates="dropdownAgenteSaude1") Agente de Saúde
+                                            i.material-icons.right
+                                li
+                                    a(href="") Sobre o Sistema
+                                
+                                li
+                                    a.dropdown-button(data-activates="dropdownusuario1") #{session.nome}
+                                        i.material-icons.right
+
 
         else
             nav

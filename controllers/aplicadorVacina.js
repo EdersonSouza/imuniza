@@ -117,7 +117,7 @@ module.exports = function(app){
 					}else{
 						req.flash('info', 'dados atualizado!');
 
-						res.render('usuarios/admin');
+						res.render('usuarios/perfil', {usuario: model});
 					}
 					
 						

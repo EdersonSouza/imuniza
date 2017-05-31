@@ -2,6 +2,12 @@ extends ../layout
 
 block content
    section.container
+
+            if messages.info
+                .msg.card-panel.teal.lighten-2
+                    each msg in messages.info
+                        b=msg
+                        br
             form.col.s12(action="/usuarios/editar/#{usuario._id}", method="POST",role="form")
                 .row
                     h5 Dados Pessoais

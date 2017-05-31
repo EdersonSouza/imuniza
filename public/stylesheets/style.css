@@ -62,3 +62,17 @@ h3#pac{
 	background-color: #E6E6E6;
 	border-radius: 25px 75px 25px 75px;
 }
+.drop1{
+	margin-top:3%;
+
+}
+.drop2{
+	margin-top:15%;
+
+}
+.drop1 a{
+	color:white !important;
+}
+.drop2 a{
+	color:black !important;
+}
