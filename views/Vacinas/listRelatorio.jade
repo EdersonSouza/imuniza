@@ -1,7 +1,7 @@
 extends ../layout
 block content
 		.container
-			.row
+			.row#yesprint
 				table(id="tabela").bordered.striped.responsive-table.cols12
 					thead
 						th Vacina
@@ -16,6 +16,8 @@ block content
 								tr
 								td #{val.nome}
 								td #{d.paciente.nome}
-								td #{moment(d.data).format('DD/MM/YYYY')}
+								td #{moment(d.data).add(24, 'hours').format('DD/MM/YYYY')}
 								td #{d.aplicador.nome}
 								td #{d.aplicador.coren}
+			.row
+				button.btn.waves-effect.waves-light(id="Imprimir") Imprimir

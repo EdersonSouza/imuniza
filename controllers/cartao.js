@@ -20,9 +20,11 @@ module.exports = function(app){
 	
 
 			vacina.find({"dados.data":{'$gte':ini , '$lte':fim}})
+				.sort('dados.data')
 				.populate('dados.paciente')
 				.populate('dados.aplicador')
 				.exec(function(err,vacinas){
+
 					if(!vacinas){
 						res.send('erro ao popular paciente');
 					}else if(vacinas){
@@ -37,6 +39,7 @@ module.exports = function(app){
 		
 		imprimiCartao:function(req,res){
 			paciente.findOne({sus:req.body.sus})
+				.sort('data')
 				.populate('vacinas.vacina')
 				.populate('vacinas.aplicador')
 				.exec(function(err, dados){

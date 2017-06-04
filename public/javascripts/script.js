@@ -58,5 +58,10 @@ $(document).ready(function(){
     footer: 'picker__footer',
 });
 
+ $('#Imprimir').click(function() {
+		window.print();
+		return false;
+	});
+
 
 });

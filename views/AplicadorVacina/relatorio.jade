@@ -1,0 +1,16 @@
+extends ../layout
+block content
+	.container
+		form.col.s12(action="/gerar_relatorio_vacinador" method="POST")
+			.row.col.s6
+				.input-fild.col.s3
+					input(type="DATE" name="din")
+				.input-fild.col.s3
+					input(type="DATE" name="dfim")
+			.row.col.s6
+				.input-field.col.s6
+					button.btn.waves-effect.waves-light(type="submit" name="action") Buscar
+						i.material-icons.right send
+
+
+

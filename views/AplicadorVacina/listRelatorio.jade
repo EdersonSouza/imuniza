@@ -1,0 +1,26 @@
+extends ../layout
+block content
+		.container
+			.row
+				div(id="pac").row
+					h6.col.s4 NOME: #{'' || vacinador.nome}
+					h6.col.s3 CPF: #{'' || vacinador.cpf}
+					h6.col.s5 E-Mail: #{'' || paciente.email}
+			.row#yesprint
+				table(id="tabela").bordered.striped.responsive-table.cols12
+					thead
+						th Vacina
+						th Paciente
+						th Registro do SUS do Paciente
+						th Data de Aplicação
+						tr
+					tbody
+						for val in vacinador.vacinas
+							tr
+							td #{val.vacina.nome}
+							td #{val.paciente.nome}
+							td #{val.paciente.sus}
+							td #{moment(val.data).add(24, 'hours').format('DD/MM/YYYY')}
+	
+			.row
+				button.btn.waves-effect.waves-light(id="Imprimir") Imprimir

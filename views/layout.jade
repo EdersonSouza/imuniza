@@ -84,7 +84,7 @@ html
                 li
                     a(href="/perfil/#{session._id}") Perfil
             
-            nav
+            nav(id='noprint')
                 .nav-wrapper.teal.lighten-3.z-depth-3
                     
                             a(href="#").brand-logo
@@ -128,7 +128,7 @@ html
 
 
         else
-            nav
+            nav(id='noprint')
                 .nav-wrapper.teal.lighten-3.z-depth-3
                     a(href="#").brand-logo
                         img.logo(src="/images/vacina.jpg", alt="")

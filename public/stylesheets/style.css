@@ -76,3 +76,14 @@ h3#pac{
 .drop2 a{
 	color:black !important;
 }
+
+ @media print {
+      #noprint {
+        visibility:hidden;
+      }
+
+      #Imprimir{
+      	visibility:hidden;
+      }
+                               
+    }

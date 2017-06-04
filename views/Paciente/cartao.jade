@@ -21,6 +21,6 @@ block content
 							for val in paciente.vacinas
 								tr
 									td #{val.vacina.nome}
-									td #{moment(val.data).format('DD/MM/YYYY')}
+									td #{moment(val.data).add(24, 'hours').format('DD/MM/YYYY')}
 									td #{val.aplicador.nome}
 									td #{val.aplicador.coren}
