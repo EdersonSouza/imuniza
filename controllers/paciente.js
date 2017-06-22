@@ -2,7 +2,7 @@ module.exports = function(app){
 	var paciente = app.models.paciente;
 	var vacina = app.models.vacinas;
 	var aplicador=app.models.aplicadorVacina;
-	
+	var moment = require('moment');
 	var pacienteController = {
 		
 		index:function(req, res){
@@ -57,14 +57,47 @@ module.exports = function(app){
 				if(err){
 					res.send('paciente não encontrado');
 				}else{
-					res.send(data);
+					res.render('Paciente/atualizar', {usuario:data});
 				}
 			});
 
 		},
 		
-		update: function(req, res){
+		atualizar:function(req,res){
+			paciente.findById(req.params.id, function(err,dados){
+				var model = dados;
+				model.nome = req.body.nome;
+				model.nasc = moment(req.body.nasc, 'DD-MM-YYYY');
+				model.rg  = req.body.rg;
+				model.cpf = req.body.cpf;
+				model.sus = req.body.sus;
+				model.email = req.body.email;
+				model.sexo = req.body.sexo;
+				model.pais.pai = req.body.pai;
+				model.pais.mae = req.body.mae;
+				model.endereco.rua =req.body.rua;
+				model.endereco.numero = req.body.numero;
+				model.endereco.bairro = req.body.bairro;
+				model.endereco.cep = req.body.cep;
+				model.endereco.cidade = req.body.cidade;
+				model.endereco.uf = req.body.uf;
+				model.telefone = req.body.fone;
 			
+
+				model.save(function(err){
+
+					if(err){
+						req.flash('erro', 'Erro ao  atualizar dados: ' + err);
+						res.render('AplicadorVacina/perfil', {usuario: dados});
+					}else{
+						req.flash('info', 'dados atualizado!');
+
+						res.render('Paciente/atualizar', {usuario: model});
+					}
+					
+						
+				});
+			});
 		},
 		
 			

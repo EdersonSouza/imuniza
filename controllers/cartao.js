@@ -38,7 +38,7 @@ module.exports = function(app){
 		
 		
 		imprimiCartao:function(req,res){
-			paciente.findOne({sus:req.body.sus})
+			paciente.findById(req.params.id)
 				.sort('data')
 				.populate('vacinas.vacina')
 				.populate('vacinas.aplicador')
@@ -46,7 +46,16 @@ module.exports = function(app){
 					if(!dados){
 						res.send('paciente não encontrado');
 					}else if(dados){
-						res.render('Paciente/cartao', {paciente:dados});
+
+						vacina.find()
+							.exec(function(err, vac){
+								if(!dados){
+								res.render('Paciente/cartao', {vacinas: '', paciente: dados});
+							}else if(dados){
+								res.render('Paciente/cartao', {vacinas: vac, paciente: dados});
+							}
+						});
+
 					}
 				});
 		},
@@ -65,6 +74,7 @@ module.exports = function(app){
 			
 		},
 		aplicar: function(req, res){
+			
 			vacina.findOne({_id: req.body.vacinas}, function(err, data){
 				if(err){
 					res.send('vacina não encontrada');
@@ -79,37 +89,59 @@ module.exports = function(app){
 
 							console.log(dados.nome)
 
-							paciente.findById({_id: req.body.id}, function(err, paciente){
+							paciente.findById(req.params.id, function(err, paci){
+
+								
 
 
-							paciente.vacinas.push({data: req.body.date, vacina: data._id, aplicador: dados._id});
-							dados.vacinas.push({data: req.body.date, vacina: data._id, paciente: paciente._id})
-							data.dados.push({data:req.body.date, paciente:paciente._id, aplicador: dados._id})
+								paci.vacinas.push({data: req.body.date, vacina: data._id, aplicador: dados._id});
+								dados.vacinas.push({data: req.body.date, vacina: data._id, paciente: paci._id})
+								data.dados.push({data:req.body.date, paciente:paci._id, aplicador: dados._id})
 
-							paciente.save(function(err){
-								if(err){
-									req.flash('erro', 'Erro ao atualizar os dados: ' + err);
-									res.render('Paciente/cartao', {paciente: paciente});
-								}
-								else{
-										dados.save(function(err){
+								paci.save(function(err){
+									if(err){
+										req.flash('erro', 'Erro ao atualizar os dados: ' + err);
+										res.render('Paciente/cartao', {paciente: paci});
+									}
+									else{
+											dados.save(function(err){
 
-											if(err){
-												req.flash('erro', 'Erro ao atualizar os dados: ' + err);
-												
-											}
-											else{
+												if(err){
+													req.flash('erro', 'Erro ao atualizar os dados: ' + err);
+													
+												}
+												else{
 
-												data.save(function(err){
-													if(err){
-														req.flash('erro', 'Erro ao atualizar os dados: ' + err);
-														}
-														else{
+													data.save(function(err){
+														if(err){
+															req.flash('erro', 'Erro ao atualizar os dados: ' + err);
+															}
+															else{
 
-															console.log("entrou aqui");
-															req.flash('info', 'Registro atualizado com sucesso!');
-															res.redirect('/aplicarVacina');
+																console.log(paciente.id);
+																req.flash('info', 'Registro atualizado com sucesso!');
 
+																paciente.findById(req.params.id)
+																	.sort('data')
+																	.populate('vacinas.vacina')
+																	.populate('vacinas.aplicador')
+																	.exec(function(err, dados){
+																		if(!dados){
+																			res.send('paciente não encontrado');
+																		}else if(dados){
+
+																			vacina.find()
+																				.exec(function(err, vac){
+																					if(!dados){
+																					res.render('Paciente/cartao', {vacinas: '', paciente: dados});
+																				}else if(dados){
+																					res.render('Paciente/cartao', {vacinas: vac, paciente: dados});
+																				}
+																		});
+
+																	}
+																});
+															
 														}
 
 												});

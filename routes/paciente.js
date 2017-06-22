@@ -9,11 +9,11 @@ module.exports = function(app){
 		.get(autenticar, controller.create)
    		.post(autenticar, controller.cadastro);
 
-   	app.route("/buscar")
+   	app.route("/paciente/buscar")
    		.post(controller.buscar);
 
    	app.route("/paciente/edit/:id")
-   		.post(controller.update)
+   		.post(controller.atualizar)
 
 
 }

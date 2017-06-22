@@ -3,7 +3,7 @@ block content
 		.container
 			.row
 				.row
-					h3(id="pac").col.s5 Cartão Paciente
+					h3(id="pac").col.s5 Cartão de Vacina
 				div(id="pac").row
 					h6.col.s4 NOME: #{'' || paciente.nome}
 					h6.col.s3 CPF: #{'' || paciente.cpf}
@@ -24,3 +24,26 @@ block content
 									td #{moment(val.data).add(24, 'hours').format('DD/MM/YYYY')}
 									td #{val.aplicador.nome}
 									td #{val.aplicador.coren}
+
+				.row.col.s6
+					button.btn.waves-effect.waves-light(id="Imprimir") Imprimir
+				.row.col.s6
+					button.btn.waves-effect.waves-light(id="aplicar") Ministrar Nova Vacina
+
+				.row
+
+					form.col.s12(action="/aplicarVacina/#{paciente._id}" method="POST")
+
+						.row
+							.input-field.col.s6
+								select(name="vacinas")
+									option(value="", disabled, selected) Vacinas
+									each vacina in vacinas
+										option(value="#{vacina._id}") #{vacina.nome}
+							.input-field.col.s6
+								input(type="DATE" name="date")
+	
+						.row
+							.input-field.col.s6
+								button.btn.waves-effect.waves-light(type="submit" name="action") Aplicar
+									i.material-icons.right send
