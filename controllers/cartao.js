@@ -35,6 +35,31 @@ module.exports = function(app){
 				});
 
 		},
+
+		relatorioAplicador: function(req,res){
+
+			var ini = req.body.din;
+			var fim = req.body.dfim;
+			var vac={};
+
+	
+
+			paciente.findById(req.params.id, {"dados.data":{'$gte':ini , '$lte':fim}})
+				.sort('dados.data')
+				.populate('dados.paciente')
+				.populate('dados.vacina')
+				.exec(function(err,vacinas){
+
+					if(!vacinas){
+						res.send('erro ao popular paciente');
+					}else if(vacinas){
+						
+						res.render("Vacinas/listRelatorio", {vacinas:vacinas});
+					}
+
+				});
+
+		},
 		
 		
 		imprimiCartao:function(req,res){
