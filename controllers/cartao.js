@@ -40,21 +40,21 @@ module.exports = function(app){
 
 			var ini = req.body.din;
 			var fim = req.body.dfim;
-			var vac={};
+			var idaplic=req.params.id;
 
 	
 
-			paciente.findById(req.params.id, {"dados.data":{'$gte':ini , '$lte':fim}})
+			paciente.findById(idaplic,{"dados.data":{'$gte':ini , '$lte':fim}})
 				.sort('dados.data')
 				.populate('dados.paciente')
 				.populate('dados.vacina')
-				.exec(function(err,vacinas){
+				.exec(function(err,apli){
 
-					if(!vacinas){
-						res.send('erro ao popular paciente');
-					}else if(vacinas){
+					if(!apli){
+						res.send('erro ao popular aplicador');
+					}else if(apli){
 						
-						res.render("Vacinas/listRelatorio", {vacinas:vacinas});
+						res.render("AplicadorVacina/listRelatorio", {vacinador:apli});
 					}
 
 				});
@@ -63,8 +63,31 @@ module.exports = function(app){
 		
 		
 		imprimiCartao:function(req,res){
+			paciente.findOne({sus:req.body.sus})
+				.sort('vacinas.data')
+				.populate('vacinas.vacina')
+				.populate('vacinas.aplicador')
+				.exec(function(err, dados){
+					if(!dados){
+						res.send('paciente não encontrado');
+					}else if(dados){
+
+						vacina.find()
+							.exec(function(err, vac){
+								if(!dados){
+								res.render('Paciente/cartao', {vacinas: '', paciente: dados});
+							}else if(dados){
+								res.render('Paciente/cartao', {vacinas: vac, paciente: dados});
+							}
+						});
+
+					}
+				});
+		},
+
+		imprimiCartaoid:function(req,res){
 			paciente.findById(req.params.id)
-				.sort('data')
+				.sort('vacinas.data')
 				.populate('vacinas.vacina')
 				.populate('vacinas.aplicador')
 				.exec(function(err, dados){

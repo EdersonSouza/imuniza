@@ -10,6 +10,23 @@ module.exports = function(app){
 
 		},
 
+		buscarid: function(req,res){
+			aplicador.findById(req.params.id, function (err, data){
+				if(err){
+					req.flash('erro', 'Agente de saúde não encontrado');
+
+
+				}
+				else{
+					
+					res.render('AplicadorVacina/relatorio',{usuario:data});
+					
+				}
+
+			})
+
+		},
+
 		create:function(req,res){
 			res.render('AplicadorVacina/cadastrar', {aplicador: new aplicador()});
 		},

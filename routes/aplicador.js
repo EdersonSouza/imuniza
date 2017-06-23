@@ -5,10 +5,13 @@ module.exports = function(app){
 	app.route("/cadastro/aplicador")
 		.get(controller.create)
    	.post(controller.cadastro);
-   	app.route("/usuarios/editar/:id")
-   		.post(controller.atualizar)
-   	app.route("/consultar/aplicador")
-   		.get(controller.buscar)
-   		.post(controller.edit)
+   app.route("/usuarios/editar/:id")
+   	.post(controller.atualizar)
+   app.route("/consultar/aplicador")
+   	.get(controller.buscar)
+   	.post(controller.edit)
+   app.route("/relatorio/:id")
+      .get(controller.buscarid)
+
 
 }
