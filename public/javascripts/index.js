@@ -16,7 +16,9 @@ $(document).ready(function(){
 	 $('.cpf').mask('000.000.000-00');
 
 	 $(".msg").fadeTo(2000, 1000).slideUp(800, function(){
-      $(".msg").slideUp(2000);
-  });
-  });
+      	$(".msg").slideUp(2000);
+  	 });
+
+    $('table.display').DataTable();
+  })
 

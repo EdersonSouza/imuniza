@@ -4,6 +4,10 @@ body {
   /*background:  left no-repeat fixed url(../images/ze_gotinha_opaco.png);*/
 }
 
+div.dataTables_wrapper {
+    margin-bottom: 3em;
+}
+
 a {
   color: #00B7FF;
 }

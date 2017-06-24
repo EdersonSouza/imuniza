@@ -1,27 +1,27 @@
 extends ../layout
 
 block content
-	h1 Vacinas
-	if lista.length > 0
-		.responsive-table
-			table(class="striped")
-				thead
-					tr 
-						th Nome:
-						th Ações:
-				tbody
-					each valor in lista
-						tr
-							td #{valor.nome}
-							td
-								a(href="/show/#{valor._id}", class="btn-large")
-									i(class="large material-icons") visibility
+	.row.container
+		.corpo
+			.row.col.s6.m6.l6
+				h3 Vacinas
+				if lista.length > 0
+					.responsive-table
+						table(class="striped")
+							thead
+								tr 
+									th Nome:
+									th Ações:
+							tbody
+								each valor in lista
+									tr
+										td #{valor.nome}
+										td
+											a(href="/vacina/edit/#{valor._id}", class="btn-floating  blue")
+												i(class="large material-icons") mode_edit
 
-								a(href="/vacina/edit/#{valor._id}", class="btn-floating btn-large red")
-									i(class="large material-icons") mode_edit
+										
 
-								
-
-	else 
-		p nenhum registro encontrado
-	a(href="/vacinas", class='waves-effect waves-light btn') Cadastrar
+				else 
+					p nenhum registro encontrado
+				a(href="/vacinas", class='waves-effect waves-light btn') Cadastrar
