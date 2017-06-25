@@ -2,26 +2,45 @@ extends ../layout
 
 block content
 	.row.container
-		.corpo
-			.row.col.s6.m6.l6
-				h3 Vacinas
-				if lista.length > 0
-					.responsive-table
-						table(class="striped")
-							thead
-								tr 
-									th Nome:
-									th Ações:
-							tbody
-								each valor in lista
-									tr
-										td #{valor.nome}
-										td
-											a(href="/vacina/edit/#{valor._id}", class="btn-floating  blue")
-												i(class="large material-icons") mode_edit
+				.corpo
+					.row.col.s12.m6.l5.card-panel.grey.lighten-5#vacinas
+						h3 Vacinas
+						if lista.length > 0
+							.responsive-table
+								table(class="striped")
+									thead
+										tr 
+											th Nome:
+											th Ações:
+									tbody
+										each valor in lista
+											tr
+												td #{valor.nome}
+												td
+													button( class="btn-floating  blue").grey.lighten-3.mod-edit
+														i(class="large material-icons grey darken-3") mode_edit
+													form.col.s12#form(action="/vacina/edit/#{valor._id}" method="POST")
+														.row
+															.input-field.col.s6
+																input(type="text" name="nome", placeholder="digite o nove nome")
+														.row
+															button.btn.waves-effect.waves-light.grey.lighten-3.black-text(type="submit" name="action") Atualizar
+																i.material-icons.right send
+
+						else 
+							p nenhuma vacina cadastrada
+					.row.col.s12.m6.l5.card-panel.grey.lighten-5#vacina
+						h3 cadastrar nova vacina
+						form.col.s12(action="/create" method="POST")
+							.row
+								.input-field.col.s6
+									input(type="text" name="nome")
+									label(for="nome") Nome da Vacina
+							.row
+								button.btn.waves-effect.waves-light.grey.lighten-3.black-text(type="submit" name="action") Cadastrar
+									i.material-icons.right send
 
 										
 
-				else 
-					p nenhum registro encontrado
-				a(href="/vacinas", class='waves-effect waves-light btn') Cadastrar
+			
+				

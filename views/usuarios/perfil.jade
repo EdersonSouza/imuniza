@@ -8,7 +8,7 @@ block content
                     each msg in messages.info
                         b=msg
                         br
-            form.col.s12(action="/usuarios/editar/#{usuario._id}", method="POST",role="form")
+            form.col.s12.card-panel.grey.lighten-5(action="/usuarios/editar/#{usuario._id}", method="POST",role="form")
                 .row
                     h5 Dados Pessoais
                     hr
@@ -43,6 +43,18 @@ block content
                                 label COREN
                                 input.form-control.fone(type="text" name="coren",value="#{usuario.coren || ''}",placeholder="Numero Coren",required, disabled)
                 .row
+                    h5 Filiação
+                    hr
+                    .row
+                        .col.s6.m6.l6
+                            .form-group
+                                label Nome do Pai
+                                input.form-control(type="text", name="pai",value="#{usuario.pais.pai || ''}",required,disabled)
+                        .col.s6.m6.l6
+                            .form-group
+                                label Nome da Mãe
+                                input.form-control(type="text",name="mae",value="#{usuario.pais.mae || ''}",required,disabled)
+                .row
                     h5 Endereço
                     hr
                     .row
@@ -73,11 +85,11 @@ block content
                                 input.form-control(type="text" name="cep",value="#{usuario.endereco.cep || ''}",placeholder="CEP",required, disabled)
                     .row.col.s12.l6.m6
                         .col.s12.l3.m6
-                            input.btn.btn-warning.btn-lg.btn-block.editar(type="button", value="Editar Perfil")
-                            input#atualizar.btn.btn-warning.btn-lg.btn-block.atualizar(type="submit" value="Atualizar")
+                            input.btn.btn-warning.btn-lg.btn-block.editar.grey.lighten-3.black-text(type="button", value="Editar Perfil")
+                            input#atualizar.btn.btn-warning.btn-lg.btn-block.atualizar.grey.lighten-3.black-text(type="submit" value="Atualizar")
                     .row.col.s12.m6.l6
                         .col.s6.m6.l4
-                            a.btn.btn-warning.btn-lg.btn-block(href="/usuario") Voltar
+                            a.btn.btn-warning.btn-lg.btn-block.grey.lighten-3.black-text(href="/usuario") Voltar
 
 
 

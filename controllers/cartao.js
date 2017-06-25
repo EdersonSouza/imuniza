@@ -69,7 +69,8 @@ module.exports = function(app){
 				.populate('vacinas.aplicador')
 				.exec(function(err, dados){
 					if(!dados){
-						res.send('paciente não encontrado');
+						res.send('erro','paciente não encontrado' + err);
+						
 					}else if(dados){
 
 						vacina.find()

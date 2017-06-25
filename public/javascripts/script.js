@@ -27,13 +27,23 @@ $(document).ready(function(){
 		});
 	});
 
-	/*$('#buscaVacinador').on('click', function(){
-
-		$('.edit').show();
-		$('#cop').hide();
+	$('.mod-edit').on('click', function(){
+		$('#form').show();
 
 		
-	});*/
+	});
+
+	$('#aplicar').on('click', function(){
+
+		$('#form').show();
+		$('.tab').hide();
+		$('#pac').hide();
+		$('#min').show();
+
+		
+
+		
+	});
 
 	$('.editar').click(function(){
 	    $('input, select').removeAttr('disabled');

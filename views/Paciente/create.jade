@@ -2,78 +2,105 @@ extends ../layout
 
 block content
     .container
-        .row
-            .valign-wrapper
-                h5 Cadastro de Pacientes
-            form(action="/cadastro/paciente" method="POST").col.s12
-                .row
-                    .col.s12.m6.l5
-                        .input-field
-                            input.validate(type="text" name="nome" required )
-                            label(for="nome") Nome
-                    .col.s12.m6.l4
-                        .input-field
-                            input.validate(type="email" name="email")
-                            label(for="email") Email
-                    .col.s12.m6.l3
-                        .input-field
-                            input(type="text" name="sus")
-                            label(for="fone") registro sus
-                .row
-                    .col.s12.m6.l3
-                        .input-field
-                            input(type="text" name="fone")
-                            label(for="fone") Fone 
-                    .col.s12.m6.l3
-                        .input-field
-                            input.validate(type="text" name="rg")
-                            label(for="rg") RG
-                    .col.s12.m6.l3
-                        .input-field
-                            input.validate.cpf(type="text", name="cpf")
-                            label(for="cpf") CPF
-                    .col.s12.m6.l3
-                        .input-field
-                            input.datepicker(type="date" name="nasc")
-                            label(for="nasc") Data de Nascimento
-                .row
-                    .col.s12.m6.l6
-                        .input-field
-                            input.validate(type="text", name="pai")
-                            label(for="pai") Nome do Pai
-                    .col.s12.m6.l6
-                        .input-field
-                            input.validate(type="text" name="mae")
-                            label(for="mae") Nome da Mãe
-                .row
-                    .col.s12.m6.l4
-                        .input-field
-                            input.validate(type="text" name="rua")
-                            label(for="rua") Rua
-                    .col.s12.m6.l1
-                        .input-field
-                            input.validate(type="text" name="numero")
-                            label(for="numero") Número
-                    .col.s12.m6.l3
-                        .input-field
-                            input.validate(type="text" name="bairro")
-                            label(for="bairro") Bairro
-                    .col.s12.m6.l4
-                        .input-field
-                            input.validate(type="text" name="cep")
-                            label(for="cep") CEP
-                .row
-                    .col.s12.m6.l8
-                        .input-field
-                            input.validate(type="text" name="cidade")
-                            label(for="cidade") Cidade
-                    .col.s12.m6.l4
-                        .input-field
-                            input.validate(type="text" name="uf")
-                            label(for="uf") UF
-                .row
-                    button.btn.waves-effect.waves-light(type="submit" name="action") Cadastrar
-                        i.material-icons.right send
+        if messages.err
+            .msg.card-panel.teal.lighten-2
+                each msg in messages.err
+                    b=msg
+                    br
+        .row.card-panel.grey.lighten-5
+            
+            .row
+
+                form(action="/cadastro/paciente" method="POST").col.s12#create
+
+                    .valign-wrapper
+                        h3 Cadastro de Paciente
+                   
+                        
+                    .row
+                        h5 Dados Pessoais
+            
+                        .row
+                            .col.s12.m6.l9
+                                .form-group
+                                    label Nome
+                                    input.form-control(type="text", name="nome",value="#{usuario.nome || ''}",  required)
+                            .col.s12.m6.l3
+                                .form-group
+                                    label Nascimento
+                                    input.form-control(type="date", name="nasc",value="#{moment(usuario.nasc).format('DD/MM/YYYY') || ''}", required)
+
+                        .row
+                            .col.s6.m6.l4
+                                .form-group
+                                    Label RG
+                                    input.form-control(type="text", name="rg",value="#{usuario.rg || ''}")
+                            .col.s6.m6.l4
+                                .form-group
+                                    label CPF
+                                    input.form-control.cpf(type="text",name="cpf",value="#{usuario.cpf || ''}")
+                            
+                            .col.s6.m6.l4
+                                .form-group
+                                    label SUS
+                                    input.form-control(type="text" name="sus",value="#{usuario.sus || ''}",required)
+                    .row
+                        h5 Filiação
+                        .row
+                            .col.s6.m6.l6
+                                .form-group
+                                    Label Nome do Pai
+                                    input.form-control(type="text", name="pai",value="#{usuario.pais.pai || ''}",required)
+                            .col.s6.m6.l6
+                                .form-group
+                                    label Nome da Mãe
+                                    input.form-control(type="text",name="mae",value="#{usuario.pais.mae || ''}",required)
+
+                    .row
+                        h5 Contatos
+                        .row
+                            .col.s12.m6.l8
+                                .form-group
+                                    label Email
+                                    input.form-control(type="email", name="email",value="#{usuario.email || ''}")
+                            .col.s6.m6.l4
+                                .form-group
+                                    label Telefone
+                                    input.form-control.fone(type="text" name="fone",value="#{usuario.telefone || ''}",required)
+
+                    .row
+                        h5 Endereço
+                        
+                        .row
+                            .col.s6.m6.l6
+                                .form-group
+                                    label Cidade
+                                    input.form-control(type="text", name="cidade",value="#{usuario.endereco.cidade || ''}",  required)
+                            .col.s6.m6.l2
+                                .form-group
+                                    label UF
+                                    input.form-control(type="text", name="uf",value="#{usuario.endereco.uf || ''}", tarequired)
+                        .row
+                            .col.s6.m6.l4
+                                .form-group
+                                    Label Rua
+                                    input.form-control(type="text", name="rua",value="#{usuario.endereco.rua || ''}",required)
+                            .col.s6.m6.l1
+                                .form-group
+                                    label Numero
+                                    input.form-control(type="text" name="numero",value="#{usuario.endereco.numero || ''}",required)
+                            .col.s6.m6.l4
+                                .form-group
+                                    label Bairro
+                                    input.form-control(type="text",name="bairro",value="#{usuario.endereco.bairro || ''}", required)
+                            .col.s6.m6.l3
+                                .form-group
+                                    label CEP
+                                    input.form-control.cep(type="text" name="cep",value="#{usuario.endereco.cep || ''}",required)
+                            
+                    .row
+                        button.btn.waves-effect.waves-light(type="submit" name="action") Cadastrar
+                            i.material-icons.right send
 
 
     

@@ -10,53 +10,57 @@ module.exports = function(app){
 
 		},
 		create:function(req,res){
-			res.render('Paciente/create');
+			res.render('Paciente/create',{usuario:new paciente});
 		},
 		cadastro:function(req,res){
 			
-			var model = new paciente();
-			model.nome = req.body.nome;
-			model.nasc = req.body.nasc;
-			model.rg  = req.body.rg;
-			model.cpf = req.body.cpf;
-			model.sus = req.body.sus;
-			model.email = req.body.email;
-			model.sexo = req.body.sexo;
-			model.pais.pai = req.body.pai;
-			model.pais.mae = req.body.mae;
-			model.endereco.rua =req.body.rua;
-			model.endereco.numero = req.body.numero;
-			model.endereco.bairro = req.body.bairro;
-			model.endereco.cep = req.body.cep;
-			model.endereco.cidade = req.body.cidade;
-			model.endereco.uf = req.body.uf;
-			model.telefone = req.body.fone;
+				var model = new paciente();
+				model.nome = req.body.nome;
+				model.nasc = moment(req.body.nasc, 'DD-MM-YYYY');
+				model.rg  = req.body.rg;
+				model.cpf = req.body.cpf;
+				model.sus = req.body.sus;
+				model.email = req.body.email;
+				model.sexo = req.body.sexo;
+				model.pais.pai = req.body.pai;
+				model.pais.mae = req.body.mae;
+				model.endereco.rua =req.body.rua;
+				model.endereco.numero = req.body.numero;
+				model.endereco.bairro = req.body.bairro;
+				model.endereco.cep = req.body.cep;
+				model.endereco.cidade = req.body.cidade;
+				model.endereco.uf = req.body.uf;
+				model.telefone = req.body.fone;
 
 			
 
 			paciente.findOne({'cpf' : model.cpf}, function(err, data){
 					if(data){
-						req.flash('erro', 'CPF já cadastrado');
-						res.render('Paciente/index', {paciente: model});
+						req.flash('erro', 'CPF já cadastrado' + err);
+						res.render('Paciente/create', {usuario: model});
 					}else{
 						model.save(function(err){
-							if(err){
-								req.flash('erro', 'Erro ao cadastrar paciente: ' + err);
-								res.render('Paciente/index', {paciente: req.body});
-							}else{
-								req.flash('info', 'Paciente cadastrado com sucesso!');
 
-								res.render('Paciente/cartao', {paciente:model});
+							if(err){
+								req.flash('erro', 'Erro ao  cadastrar paciente: ' + err);
+								res.render('Paciente/create', {usuario: model});
+							}else{
+								req.flash('info', 'paciente cadastrado!');
+
+								res.render('Paciente/atualizar', {usuario: model});
 							}
+							
+								
 						});
 					}
 				});
 		},
 		buscar:function(req,res){
 			paciente.findOne({sus: req.body.sus}, function(err, data){
-				if(err){
-					res.send('paciente não encontrado');
-				}else{
+				if(!data){
+					req.flash('info','paciente não encontrado'+ err);
+					res.render('Paciente/index');
+				}else if (data){
 					res.render('Paciente/atualizar', {usuario:data});
 				}
 			});
@@ -88,7 +92,7 @@ module.exports = function(app){
 
 					if(err){
 						req.flash('erro', 'Erro ao  atualizar dados: ' + err);
-						res.render('AplicadorVacina/perfil', {usuario: dados});
+						res.render('Paciente/atualizar', {usuario: dados});
 					}else{
 						req.flash('info', 'dados atualizado!');
 

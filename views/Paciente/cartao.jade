@@ -4,12 +4,13 @@ block content
 			.row
 				.row
 					h3(id="pac").col.s5 Cartão de Vacina
+					h3(id="min").col.s5 Aplicar Vacina
 				div(id="pac").row
 					h6.col.s4 NOME: #{'' || paciente.nome}
 					h6.col.s3 CPF: #{'' || paciente.cpf}
-					h6.col.s5 E-Mail: #{'' || paciente.email}
+					h6.col.s5 Registro Sus: #{'' || paciente.sus}
 
-				.row
+				.row.tab
 					table(id="tabela").bordered.striped.responsive-table.cols12
 						thead
 							th Vacina
@@ -25,12 +26,12 @@ block content
 									td #{val.aplicador.nome}
 									td #{val.aplicador.coren}
 
-				.row.col.s6
+				.row.col.s6.tab
 					button.btn.waves-effect.waves-light(id="Imprimir") Imprimir
-				.row.col.s6
+				.row.col.s6.tab
 					button.btn.waves-effect.waves-light(id="aplicar") Ministrar Nova Vacina
 
-				.row
+				.row#form
 
 					form.col.s12(action="/aplicarVacina/#{paciente._id}" method="POST")
 

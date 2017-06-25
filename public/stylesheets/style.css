@@ -1,7 +1,12 @@
 body {
   padding: 0px;
-  /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
-  /*background:  left no-repeat fixed url(../images/ze_gotinha_opaco.png);*/
+  /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background:  left no-repeat fixed url(../images/injecao.png);*/
+}
+
+.fundo{
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	background:  left no-repeat fixed url(../images/injecao.png);
 }
 
 div.dataTables_wrapper {
@@ -39,6 +44,22 @@ a {
 	display: none;
 	
 }
+#form{
+	display: none;
+	
+}
+#min{
+	display: none;
+	
+}
+#vacinas{
+	margin-right: 20px;
+}
+#vacina{
+	margin-left:  20px;
+}
+
+#titulo{}
 label#nome{
 	color:black;
 	font-weight: bold;
@@ -87,6 +108,9 @@ h3#pac{
       }
 
       #Imprimir{
+      	visibility:hidden;
+      }
+      #aplicar{
       	visibility:hidden;
       }
                                

@@ -13,3 +13,9 @@ block content
 						.input-fild.col.s5
 							button(class="btn-floating btn-large blue")
 								i(class="material-icons") search
+		.row
+			if messages.info
+				.msg.card-panel.teal.lighten-2
+					each msg in messages.info
+						b=msg
+						br
