@@ -6,7 +6,7 @@ module.exports = function(app){
 
 
 		buscar:function(req,res){
-			res.render('AplicadorVacina/editar', {usuario:new aplicador});
+			res.render('AplicadorVacina/editar');
 
 		},
 
@@ -86,22 +86,33 @@ module.exports = function(app){
 
 		edit:function(req,res){
 			aplicador.findOne({coren: req.body.coren}, function(err,data){
-				if(err){
+				if(!data){
 					req.flash('erro', 'Agente de saúde não encontrado');
+					res.render('AplicadorVacina/editar');
 
-					console.log('erro');
 
 				}
-				else{
+				else if (data){
 					req.flash('info','Agente de saúde encontrado');
 
-					console.log(data.nasc);
-					
 					res.render('AplicadorVacina/atualizar',{usuario:data});
 					
 				}
 
 			});
+		},
+
+		cancelar: function(req,res){
+			aplicador.findById(req.params.id, function(err,dados){
+				if(err){
+					req.flash('erro', "erro ao buscar usuario");
+					res.render('usuarios/admin');
+				}else{
+					res.render('AplicadorVacina/atualizar', {usuario:dados});
+				}
+
+			});
+
 		},
 
 
@@ -124,7 +135,6 @@ module.exports = function(app){
 				model.endereco.cidade = req.body.cidade;
 				model.endereco.uf = req.body.uf;
 				model.telefone = req.body.fone;
-				model.tipo = req.body.tipo;
 
 				model.save(function(err){
 
@@ -134,7 +144,7 @@ module.exports = function(app){
 					}else{
 						req.flash('info', 'dados atualizado!');
 
-						res.render('usuarios/perfil', {usuario: model});
+						res.render('AplicadorVacina/atualizar', {usuario: model});
 					}
 					
 						

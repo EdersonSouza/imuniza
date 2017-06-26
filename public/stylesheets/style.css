@@ -1,7 +1,7 @@
 body {
   padding: 0px;
-  /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background:  left no-repeat fixed url(../images/injecao.png);*/
+  /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
+  /*background: #e0e0e0;*/
 }
 
 .fundo{
@@ -25,10 +25,53 @@ a {
 		padding-top: 50px;
 		margin-left: 200px;
 	}
+	.corpo2{
+	/**/
+	padding-top: 10px;
+	margin-left: 350px;
+
+	}
+	.corpo3{
+	/**/
+	padding-top: 50px;
+	margin-left: 275px;
+
+	}
+
+	.corpo4{
+		padding-top: 50px;
+		margin-left: 100px;
+	}
+	.corpo5{
+		padding-top: 50px;
+		margin-left: 500px;
+	}
+
 } 
+
+
+
+
 .corpo{
 	/**/
 	padding-top: 50px;
+
+}
+#cancela{
+	display: none;
+}
+
+.card {
+     position: absolute;
+     left: 50%;
+     -moz-transform: translate(-50%, -50%)
+     -webkit-transform: translate(-50%, -50%)
+     -ms-transform: translate(-50%, -50%)
+     -o-transform: translate(-50%, -50%)
+     transform: translate(-50%, -50%);
+}
+p{
+	text-align: justify;
 }
 
 .logo{
@@ -53,11 +96,11 @@ a {
 	
 }
 #vacinas{
-	margin-right: 20px;
+	margin-right: 40px;
 }
-#vacina{
+/*#vacina{
 	margin-left:  20px;
-}
+}*/
 
 #titulo{}
 label#nome{

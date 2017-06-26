@@ -17,5 +17,7 @@ module.exports = function(app){
 
       app.route('/usuario')
          .get(controller.home)
+      app.route('/sistema')
+         .get(controller.sistema)
 
 }

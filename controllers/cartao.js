@@ -76,9 +76,9 @@ module.exports = function(app){
 						vacina.find()
 							.exec(function(err, vac){
 								if(!dados){
-								res.render('Paciente/cartao', {vacinas: '', paciente: dados});
+								res.render('Paciente/cartaopaciente', {vacinas: '', paciente: dados});
 							}else if(dados){
-								res.render('Paciente/cartao', {vacinas: vac, paciente: dados});
+								res.render('Paciente/cartaopaciente', {vacinas: vac, paciente: dados});
 							}
 						});
 

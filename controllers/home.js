@@ -1,6 +1,9 @@
 module.exports = function(app){
 	var userModel = app.models.aplicadorVacina;
 	var homeController = {
+		sistema: function(req,res){
+			res.render('sistema');
+		},
 
 		perfil: function(req,res){
 			userModel.findById(req.params.id, function(err,dados){

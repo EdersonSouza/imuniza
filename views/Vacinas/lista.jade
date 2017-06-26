@@ -17,15 +17,8 @@ block content
 											tr
 												td #{valor.nome}
 												td
-													button( class="btn-floating  blue").grey.lighten-3.mod-edit
+													a(href="/vacina/edit/#{valor._id}" class="btn-floating  blue" name="vacina").grey.lighten-3.mod-edit
 														i(class="large material-icons grey darken-3") mode_edit
-													form.col.s12#form(action="/vacina/edit/#{valor._id}" method="POST")
-														.row
-															.input-field.col.s6
-																input(type="text" name="nome", placeholder="digite o nove nome")
-														.row
-															button.btn.waves-effect.waves-light.grey.lighten-3.black-text(type="submit" name="action") Atualizar
-																i.material-icons.right send
 
 						else 
 							p nenhuma vacina cadastrada

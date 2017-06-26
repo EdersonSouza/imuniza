@@ -11,5 +11,10 @@ block content
 				.input-field.col.s5
 					button(class="btn-floating btn-large blue" id="buscaVacinador")
 						i(class="material-icons") search
+		if messages.erro
+			.msg.card-panel.teal.lighten-2
+				each msg in messages.erro
+					b=msg
+					br
 
 	

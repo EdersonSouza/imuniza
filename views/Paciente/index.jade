@@ -4,14 +4,14 @@ block content
 		br
 		.row
 			form(method="post" action="/paciente/buscar").col.s12
-				.row
+				.row.card-panel.col.s12.l6.m6.grey.lighten-5.corpo5
 					h5 BUSCAR PACIENTE
-					.input-field.col.s4
+					.input-field.col.s4.l9.m6
 						input.validate(type="text" name="sus" required)
 						label(for="sus") Registro do SUS
 					.row
-						.input-fild.col.s5
-							button(class="btn-floating btn-large blue")
+						.input-fild.col.s5.l3.m6
+							button(class="btn-floating btn-large blue").blue.lighten-2
 								i(class="material-icons") search
 		.row
 			if messages.info

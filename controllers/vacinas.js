@@ -71,7 +71,17 @@ module.exports = function(app){
 					req.flash('erro', 'Erro ao editar: '+err);
 					res.redirect('/lista');
 				}else{
-					res.render('Vacinas/atualizar', {dados: data});
+					Vacina.find(function(err,vacinas){
+						if(err){
+							//
+						}
+						else{
+
+							res.render('Vacinas/atualizar', {dados: data, vacinas:vacinas});
+
+						}
+					})
+					
 				}
 			});
 		},

@@ -6,37 +6,40 @@ block content
 		div(class="alert-danger")
 			p= messages.erro
 		br
-	.row.container
-		.corpo
-			ul.tabs.label-menu.right-align
-				li.tab.col.s6
-					a(href="#test-swipe-1").brown-text.darken-4	Agente de Saúde
-				li.tab.col.s6
-					a(href="#test-swipe-2").brown-text.darken-4	Paciente
-			.tabs-content
-				.col.s12#test-swipe-1
-					.container
-						.row
-							form.col.s12(method="post", action="/acessar")
-								.row
-									.input-field
-										input(type="text", name="email").validate#nome
-										label(for="email") E-mail
-									.input-field.col-s6
-										input(type="password" name="senha").validate#senha
-										label(for="senha") Senha
-									button(type="submit").btn.waves-effect.waves-light Enviar
-										i.material-icons.left done
-				.col.s12#test-swipe-2
-					.container
-						.row
-							form.col.s12(method="POST", action="/imprimiCartao")
-								.row
-									.input-field
-										input(type="text" name="sus").validate
-										label(for="sus") Registro do SUS
-									button(type="submit").btn.waves-effect.waves-light Enviar
-										i.material-icons.left done
+	.corpo2
+		.row.container.card-panel
+			section.card-panel.lime.lighten-5
+				p Bem vindo ao Sistema de Auxílio a Imunização de Pessoas no Brasil escolha uma das opções abaixo
+			.corpo4
+				ul.tabs.label-menu.right-align
+					li.tab.col.s6
+						a(href="#test-swipe-1").brown-text.darken-4	Agente de Saúde
+					li.tab.col.s6
+						a(href="#test-swipe-2").brown-text.darken-4	Paciente
+				.tabs-content
+					.col.s12#test-swipe-1
+						.container
+							.row
+								form.col.s12(method="post", action="/acessar")
+									.row
+										.input-field
+											input(type="text", name="email").validate#nome
+											label(for="email") E-mail
+										.input-field.col-s6
+											input(type="password" name="senha").validate#senha
+											label(for="senha") Senha
+										button(type="submit").btn.waves-effect.waves-light Enviar
+											i.material-icons.left done
+					.col.s12#test-swipe-2
+						.container
+							.row
+								form.col.s12(method="POST", action="/imprimiCartao")
+									.row
+										.input-field
+											input(type="text" name="sus").validate
+											label(for="sus") Registro do SUS
+										button(type="submit").btn.waves-effect.waves-light Enviar
+											i.material-icons.left done
 			
 
 

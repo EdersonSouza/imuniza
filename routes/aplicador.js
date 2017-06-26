@@ -12,6 +12,8 @@ module.exports = function(app){
    	.post(controller.edit)
    app.route("/relatorio/:id")
       .get(controller.buscarid)
+   app.route("/cancelar/aplicador/:id")
+      .get(controller.cancelar)
 
 
 }

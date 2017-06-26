@@ -27,7 +27,8 @@ $(document).ready(function(){
 		});
 	});
 
-	$('.mod-edit').on('click', function(){
+	$('button[name=vacina]').on('click', function(){
+		
 		$('#form').show();
 
 		
@@ -49,6 +50,8 @@ $(document).ready(function(){
 	    $('input, select').removeAttr('disabled');
 	    $('.atualizar').show();
 	    $('.editar').hide();
+	    $('#cancela').show();
+	    $('#voltar').hide();
 	   
   });
 
@@ -72,6 +75,25 @@ $(document).ready(function(){
 		window.print();
 		return false;
 	});
+
+
+    $('.tabela').dataTable({
+        "language": {
+          "lengthMenu"  : "Exibir _MENU_  usuários por página",
+          "info"        : "Mostrando página  _PAGE_ de _PAGE_",
+          "search"      : "Procurar",
+          "zeroRecords" : "Nenhum resultado encontrado",
+          "infoEmpty"   : "Mostrando página _PAGE_ de _PAGE_",
+          "infoFiltered": "- Filtrando a partir de um total de _MAX_ entradas",
+          "paginate"    : {
+            "previous"  : "Anterior",
+            "next"      : "Próxima"
+          }
+        }
+      });
+
+
+
 
 
 });

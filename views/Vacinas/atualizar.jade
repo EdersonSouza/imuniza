@@ -1,11 +1,33 @@
 extends ../layout
 
 block content
-    h1 Atualização de vacinas
-    hr
-    br
-    form(method="POST", action="/vacina/edit/#{dados._id}", class="col s12")
-      div(class="row")
-        label Nome:
-        input(type="text", name="nome", class="form-control", value="#{dados.nome}")
-        button(type="submit", class="waves-effect waves-light btn") Atualizar
+	.row.container
+		.corpo
+			.row.col.s12.m6.l5.card-panel.grey.lighten-5#vacinas
+				h3 Vacinas
+				if vacinas.length > 0
+					.responsive-table
+						table(class="striped")
+							thead
+								tr 
+								th Nome:
+								th Ações:
+							tbody
+								each valor in vacinas
+									tr
+									td #{valor.nome}
+									td
+										a(href="/vacina/edit/#{valor._id}" class="btn-floating  blue" name="vacina").grey.lighten-3.mod-edit
+											i(class="large material-icons grey darken-3") mode_edit
+				else 
+					p nenhuma vacina cadastrada
+			.row.col.s12.m6.l5.card-panel.grey.lighten-5#vacina
+				h3 Atualizar Vacina
+				form.col.s12(method="POST", action="/vacina/edit/#{dados._id}")
+					.row
+						.input-field.col.s6
+							input(type="text", name="nome", value="#{dados.nome}")
+							label(for="nome") Nome da Vacina
+					.row
+						button.btn.waves-effect.waves-light.grey.lighten-3.black-text(type="submit" name="action") Atualizar
+							i.material-icons.right send

@@ -1,0 +1,29 @@
+extends ../layout
+block content
+		.container
+			.row.card-panel.grey.lighten-5
+				section.row
+					p Calendrário de Vacinação
+					
+				div(id="pac").row
+					h6.col.s6 NOME: #{'' || paciente.nome}
+					h6.col.s4 Registro do Sus: #{'' || paciente.sus}
+
+				.row.tab
+					table(id="tabela").bordered.striped.responsive-table.cols12
+						thead
+							th Vacina
+							th Data de Aplicação
+							th Vacinador
+							th Coren Vacinador
+							tr
+						tbody
+							for val in paciente.vacinas
+								tr
+									td #{val.vacina.nome}
+									td #{moment(val.data).add(24, 'hours').format('DD/MM/YYYY')}
+									td #{val.aplicador.nome}
+									td #{val.aplicador.coren}
+
+				.row.col.s6.tab
+					button.btn.waves-effect.waves-light(id="Imprimir") Imprimir
