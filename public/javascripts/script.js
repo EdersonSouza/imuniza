@@ -79,7 +79,7 @@ $(document).ready(function(){
 
     $('.tabela').dataTable({
         "language": {
-          "lengthMenu"  : "Exibir _MENU_  usuários por página",
+          "lengthMenu"  : "Exibir _MENU_  vacinas por página",
           "info"        : "Mostrando página  _PAGE_ de _PAGE_",
           "search"      : "Procurar",
           "zeroRecords" : "Nenhum resultado encontrado",
@@ -91,6 +91,22 @@ $(document).ready(function(){
           }
         }
       });
+
+    $('.tabelavacina').dataTable({
+        "language": {
+          "lengthMenu"  : "Exibir _MENU_  vacinas por página",
+          "info"        : "Mostrando página  _PAGE_ de _PAGE_",
+          "search"      : "Procurar",
+          "zeroRecords" : "Nenhum resultado encontrado",
+          "infoEmpty"   : "Mostrando página _PAGE_ de _PAGE_",
+          "infoFiltered": "- Filtrando a partir de um total de _MAX_ entradas",
+          "paginate"    : {
+            "previous"  : "Anterior",
+            "next"      : "Próxima"
+          }
+        }
+      });
+
 
 
 

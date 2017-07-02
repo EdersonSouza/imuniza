@@ -5,6 +5,8 @@ module.exports = function(app){
       app.route('/gerar_relatorio')
          .get(controller.getRelatorio)
          .post(controller.gerarRelatorio)
+      app.route("aplicador/relatorio:id")
+      	.post(controller.relatorioAplicador)
 
 
 }

@@ -1,11 +1,6 @@
 extends layout
 
 block content
-
-	if messages.erro
-		div(class="alert-danger")
-			p= messages.erro
-		br
 	.corpo2
 		.row.container.card-panel
 			section.card-panel.lime.lighten-5
@@ -30,6 +25,12 @@ block content
 											label(for="senha") Senha
 										button(type="submit").btn.waves-effect.waves-light Enviar
 											i.material-icons.left done
+							.row
+								if messages.erro
+									.msg.card-panel.teal.lighten-2
+										each msg in messages.erro
+											b=msg
+											br
 					.col.s12#test-swipe-2
 						.container
 							.row
@@ -40,6 +41,12 @@ block content
 											label(for="sus") Registro do SUS
 										button(type="submit").btn.waves-effect.waves-light Enviar
 											i.material-icons.left done
+							.row
+								if messages.erro
+									.msg.card-panel.teal.lighten-2
+										each msg in messages.erro
+											b=msg
+											br
 			
 
 

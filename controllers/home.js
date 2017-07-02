@@ -39,7 +39,8 @@ module.exports = function(app){
 					console.log(req.session.usuario);
 					res.redirect('/logado');
 				}else {
-					res.send('registro ou senha invalido');
+					req.flash("erro",'registro ou senha invalido');
+					res.redirect('/');
 				}
 			});
 		},

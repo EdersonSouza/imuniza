@@ -11,15 +11,14 @@ block content
 					h6.col.s5 Registro Sus: #{'' || paciente.sus}
 
 				.row.tab
-					table(id="tabela").bordered.striped.responsive-table.cols12
+					table.tabela
 						thead
 							th Vacina
 							th Data de Aplicação
 							th Vacinador
 							th Coren Vacinador
-							tr
 						tbody
-							for val in paciente.vacinas
+							each val in paciente.vacinas
 								tr
 									td #{val.vacina.nome}
 									td #{moment(val.data).add(24, 'hours').format('DD/MM/YYYY')}

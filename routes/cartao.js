@@ -16,6 +16,8 @@ module.exports = function(app){
 
    	app.route('/gerar_relatorio_vacinador/:id')
    		.post(controller.relatorioAplicador)
+     app.route("/relatorio/:id")
+      .get(controller.relatorioAplicador)
 
 
 

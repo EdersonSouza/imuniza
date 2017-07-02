@@ -9,10 +9,9 @@ block content
 						th Data de Aplicação
 						th Vacinador
 						th Coren Vacinador
-						tr
 					tbody
-						for val in vacinas
-							for d in val.dados
+						each val in vacinas
+							each d in val.dados
 								tr
 								td #{val.nome}
 								td #{d.paciente.nome}

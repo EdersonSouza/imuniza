@@ -44,10 +44,10 @@ module.exports = function(app){
 
 	
 
-			paciente.findById(idaplic,{"dados.data":{'$gte':ini , '$lte':fim}})
-				.sort('dados.data')
-				.populate('dados.paciente')
-				.populate('dados.vacina')
+			aplicador.findById(idaplic)
+				.sort('vacinas.data')
+				.populate('vacinas.paciente')
+				.populate('vacinas.vacina')
 				.exec(function(err,apli){
 
 					if(!apli){
@@ -69,7 +69,8 @@ module.exports = function(app){
 				.populate('vacinas.aplicador')
 				.exec(function(err, dados){
 					if(!dados){
-						res.send('erro','paciente não encontrado' + err);
+						req.flash('erro','paciente não encontrado');
+						res.redirect("/");
 						
 					}else if(dados){
 

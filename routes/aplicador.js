@@ -10,10 +10,9 @@ module.exports = function(app){
    app.route("/consultar/aplicador")
    	.get(controller.buscar)
    	.post(controller.edit)
-   app.route("/relatorio/:id")
-      .get(controller.buscarid)
    app.route("/cancelar/aplicador/:id")
       .get(controller.cancelar)
+
 
 
 }

@@ -83,14 +83,17 @@ block content
                             .form-group
                                 label CEP
                                 input.form-control(type="text" name="cep",value="#{usuario.endereco.cep || ''}",placeholder="CEP",required, disabled)
-                    .row.col.s12.l6.m6
-                        .col.s12.l3.m6
+                    .row.col.s3.l3.m6
+                        .col.s3.l3.m6
                             input.btn.btn-warning.btn-lg.btn-block.editar.grey.lighten-3.black-text(type="button", value="Editar")
                             input#atualizar.btn.btn-warning.btn-lg.btn-block.atualizar.grey.lighten-3.black-text(type="submit" value="Atualizar")
-                    .row.col.s12.m6.l6
-                        .col.s6.m6.l4
+                    .row.col.s6.m6.l6
+                        .col.s6.m6.l6
                             a.btn.btn-warning.btn-lg.btn-block.grey.lighten-3.black-text#voltar(href="/usuario") Voltar
                             a.btn.waves-effect.waves-light.grey.lighten-3.black-text#cancela(href="/cancelar/aplicador/#{usuario.id}") Cancelar
+                    .row.col.s3.m6.l3
+                        .col.s3.m6.l3
+                            a.btn.waves-effect.waves-light.grey.lighten-3.black-text(href="/relatorio/#{usuario.id}") Relatorio
 
 
 
