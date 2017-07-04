@@ -144,9 +144,9 @@ module.exports = function(app){
 								
 
 
-								paci.vacinas.push({data: req.body.date, vacina: data._id, aplicador: dados._id});
-								dados.vacinas.push({data: req.body.date, vacina: data._id, paciente: paci._id})
-								data.dados.push({data:req.body.date, paciente:paci._id, aplicador: dados._id})
+								paci.vacinas.push({data: req.body.date, vacina: data._id, aplicador: dados._id, doze: req.body.doze});
+								dados.vacinas.push({data: req.body.date, vacina: data._id, paciente: paci._id, doze: req.body.doze})
+								data.dados.push({data:req.body.date, paciente:paci._id, aplicador: dados._id, doze: req.body.doze})
 
 								paci.save(function(err){
 									if(err){

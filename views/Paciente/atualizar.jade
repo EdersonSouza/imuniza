@@ -42,11 +42,11 @@ block content
 						.col.s6.m6.l6
 							.form-group
 								label Nome do Pai
-								input.form-control(type="text", name="pai",value="#{usuario.pais.pai || ''}",required)
+								input.form-control(type="text", name="pai",value="#{usuario.pais.pai || ''}",required,disabled)
 						.col.s6.m6.l6
 							.form-group
 								label Nome da Mãe
-								input.form-control(type="text",name="mae",value="#{usuario.pais.mae || ''}",required)
+								input.form-control(type="text",name="mae",value="#{usuario.pais.mae || ''}",required,disabled)
 				.row
 					h5 Endereço
 					

@@ -30,7 +30,8 @@ module.exports = function(){
 			{
 				data : {type: Date},
 				vacina: {type: Schema.ObjectId, ref: 'Vacinas', required: true},
-				paciente: {type:Schema.ObjectId, ref: 'Paciente', required: true}
+				paciente: {type:Schema.ObjectId, ref: 'Paciente', required: true},
+				doze: {type: String}
 			}
 		]
 

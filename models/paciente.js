@@ -27,7 +27,8 @@ module.exports = function(){
 			{
 				data : {type: Date},
 				vacina: {type: Schema.ObjectId, ref: 'Vacinas', required: true},
-				aplicador: {type:Schema.ObjectId, ref: 'Aplicador', required: true}
+				aplicador: {type:Schema.ObjectId, ref: 'Aplicador', required: true},
+				doze: {type: String}
 			}
 		]
 

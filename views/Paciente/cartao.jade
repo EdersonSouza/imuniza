@@ -14,6 +14,7 @@ block content
 					table.display
 						thead
 							th Vacina
+							th Doze
 							th Data de Aplicação
 							th Vacinador
 							th Coren Vacinador
@@ -21,6 +22,7 @@ block content
 							each val in paciente.vacinas
 								tr
 									td #{val.vacina.nome}
+									td #{val.doze}
 									td #{moment(val.data).add(24, 'hours').format('DD/MM/YYYY')}
 									td #{val.aplicador.nome}
 									td #{val.aplicador.coren}
@@ -35,12 +37,20 @@ block content
 					form.col.s12(action="/aplicarVacina/#{paciente._id}" method="POST")
 
 						.row
-							.input-field.col.s6
-								select(name="vacinas")
+							.input-field.col.s4
+								select(name="vacinas",required)
 									option(value="", disabled, selected) Vacinas
 									each vacina in vacinas
 										option(value="#{vacina._id}") #{vacina.nome}
-							.input-field.col.s6
+							.input-field.col.s4
+								select(name="doze",required)
+									option(value="", disabled, selected) DOZE
+									option(value="Unica") Unica
+									option(value="Reforço") Reforço
+									option(value="1ª") 1ª
+									option(value="2ª") 2ª
+									option(value="3ª") 3ª
+							.input-field.col.s4
 								input(type="DATE" name="date")
 	
 						.row

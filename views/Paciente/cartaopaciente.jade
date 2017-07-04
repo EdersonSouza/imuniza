@@ -13,6 +13,7 @@ block content
 					table(id="tabela").bordered.striped.m6
 						thead
 							th Vacina
+							th Doze
 							th Data de Aplicação
 							th Vacinador
 							th Coren Vacinador
@@ -21,6 +22,7 @@ block content
 							for val in paciente.vacinas
 								tr
 									td #{val.vacina.nome}
+									td #{val.doze}
 									td #{moment(val.data).add(24, 'hours').format('DD/MM/YYYY')}
 									td #{val.aplicador.nome}
 									td #{val.aplicador.coren}
