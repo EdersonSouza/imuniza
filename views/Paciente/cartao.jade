@@ -10,8 +10,8 @@ block content
 					h6.col.s3 CPF: #{'' || paciente.cpf}
 					h6.col.s5 Registro Sus: #{'' || paciente.sus}
 
-				.row.tab
-					table.tabela
+				.row
+					table.display
 						thead
 							th Vacina
 							th Data de Aplicação
@@ -25,9 +25,9 @@ block content
 									td #{val.aplicador.nome}
 									td #{val.aplicador.coren}
 
-				.row.col.s6.tab
+				.row.col.s6
 					button.btn.waves-effect.waves-light(id="Imprimir") Imprimir
-				.row.col.s6.tab
+				.row.col.s6
 					button.btn.waves-effect.waves-light(id="aplicar") Ministrar Nova Vacina
 
 				.row#form

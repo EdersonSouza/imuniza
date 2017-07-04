@@ -8,10 +8,10 @@ block content
 				div(id="pac").row
 					h6.col.s4 NOME: #{'' || vacinador.nome}
 					h6.col.s3 CPF: #{'' || vacinador.cpf}
-					h6.col.s5 Registro Sus: #{'' || vacinador.coren}
+					h6.col.s5 COREN: #{'' || vacinador.coren}
 
 				.row.tab
-					table.tabela
+					table.display
 						thead
 							th Vacina
 							th Data de Aplicação
@@ -20,7 +20,7 @@ block content
 							each val in vacinador.vacinas
 								tr
 									td #{val.vacina.nome}
-									td #{moment(val.data).add(24, 'hours').format()}
+									td #{moment(val.data).add(24, 'hours').format("DD/MM/YYYY")}
 									td #{val.paciente.nome}
 
 				.row.col.s6.tab

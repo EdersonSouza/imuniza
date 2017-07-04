@@ -21,6 +21,26 @@ $(document).ready(function(){
       	$(".msg").slideUp(2000);
   	 });
 
-    $('table.display').DataTable();
+    $('.display').DataTable({
+    	"language": {
+          "lengthMenu"  : "",
+          "info"        : "Mostrando _START_ / _END_ de _TOTAL_ registro(s)",
+          "search"      : "Procurar",
+          "zeroRecords" : "Nenhuma Vacina encontrada",
+          "infoEmpty"   : 'Mostrando 0 / 0 de 0 registros',
+          "infoFiltered": "(filtrado de _MAX_ registros)",
+          "paginate"    : {
+            "previous"  : "Anterior",
+            "next"      : "Próxima"
+          }
+        },
+        
+
+    });
+     $('#example').DataTable( {
+        "paging":   false,
+        "ordering": false,
+        "info":     false
+    } );
   })
 
